@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,6 +14,20 @@ builder.Services.AddScoped<IDbConnection>(sp =>
     return new SqlConnection(connectionString);
 });
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+    {
+        //options.Cookie.Name = "MyCookieAuth";
+        options.LoginPath = "/Account/Login";
+        //options.LogoutPath = "/Account/Logout";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan=TimeSpan.FromMinutes(30);
+    });
+builder.Services.AddAuthorization(option =>
+{
+    option.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
+    option.AddPolicy("MustBelongToHRDepartment", policy=>policy.RequireClaim("Department","HR"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,7 +42,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

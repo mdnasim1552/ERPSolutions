@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PTLRealERP.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\Images\\Comp_Logo\\3101.jpg",
+      "PackagePath": "staticwebassets\\Images\\Comp_Logo\\3101.jpg"
+    },
+    {
       "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

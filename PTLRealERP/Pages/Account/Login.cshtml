@@ -1,0 +1,45 @@
+﻿@page
+@model PTLRealERP.Pages.Accounts.LoginModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 border p-3 rounded">
+            <form method="post">
+                <div class="mb-3">
+                    <label asp-for="Credential.Username"></label>
+                    <input type="text" asp-for="Credential.Username" class="form-control" placeholder="email address" />
+                    <span asp-validation-for="Credential.Username" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Credential.Password"></label>
+                    <input type="password" asp-for="Credential.Password" class="form-control" placeholder="password" />                   
+                    <span asp-validation-for="Credential.Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox" asp-for="Credential.IsRemember" class="form-check-input" />
+                    <label asp-for="Credential.IsRemember" class="form-check-label"></label>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="btn w-100 btn-primary mb-2" value="Login" />
+                </div>
+                @*<div class="text-center">
+                    <a class="text-primary" asp-action="">Forgot Password?</a>
+                </div>*@
+                @*<div class="line"></div>*@
+            </form>
+            @*<div class="mb-3 text-center">
+                <form asp-controller="Account" asp-action="SignUp" method="get">
+                    <input type="submit" class="btn btn-success w-50" value="Register" />
+                </form>
+            </div>*@
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
