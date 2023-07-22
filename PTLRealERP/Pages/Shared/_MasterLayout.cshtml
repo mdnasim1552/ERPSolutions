@@ -332,7 +332,7 @@
     </header>*@
     <div class="sidebar close">
         <div class="logo-details">
-            <i class="bx bx-menu"></i>
+            <i class="bx bx-menu BxMenu"></i>
             <span class="logo_name">Home</span>
         </div>
         <ul class="nav-links">
@@ -510,7 +510,7 @@
             <li>
                 <div class="profile-details">
                     <div class="profile-content">
-                        <img src="~/Images/Comp_Logo/3101.jpg" class="bx-menu" alt="Logo" />
+                        <img src="~/Images/Comp_Logo/3101.jpg" class="BxMenu" alt="Logo" />
                     </div>
                     <div class="name-job">
                         <div class="profile_name">Prem Shahi</div>
@@ -586,7 +586,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="container">
+            <div class="container-fluid">
                 <main role="main" class="pb-3">
                     @RenderBody()
                 </main>
@@ -629,7 +629,7 @@
             });
 
             let sidebar = $(".sidebar");
-            let sidebarBtn = $(".bx-menu");
+            let sidebarBtn = $(".BxMenu");
             console.log(sidebarBtn);
 
             sidebarBtn.click(function () {

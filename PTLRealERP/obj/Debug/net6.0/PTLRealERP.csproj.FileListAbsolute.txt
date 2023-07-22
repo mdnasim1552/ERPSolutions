@@ -38,3 +38,5 @@ C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\PTLRealERP\obj\Debug\net6.0\PTL
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\PTLRealERP\obj\Debug\net6.0\PTLRealERP.genruntimeconfig.cache
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\PTLRealERP\obj\Debug\net6.0\ref\PTLRealERP.dll
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\PTLRealERP\obj\Debug\net6.0\scopedcss\Pages\Shared\_MasterLayout.cshtml.rz.scp.css
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\PTLRealERP\bin\Debug\net6.0\RealERPLIB.dll
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\PTLRealERP\bin\Debug\net6.0\RealERPLIB.pdb
