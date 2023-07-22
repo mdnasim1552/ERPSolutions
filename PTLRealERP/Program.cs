@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using RealERPLIB.DapperRepository;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,6 +14,8 @@ builder.Services.AddScoped<IDbConnection>(sp =>
     var connectionString = configuration.GetConnectionString("DefaultConnection");
     return new SqlConnection(connectionString);
 });
+builder.Services.AddScoped<IDapperService, DapperService>();
+
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>

@@ -15,4 +15,8 @@
     <None Include="wwwroot\Images\Comp_Logo\3101.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RealERPLIB\RealERPLIB.csproj" />
+  </ItemGroup>
+
 </Project>
