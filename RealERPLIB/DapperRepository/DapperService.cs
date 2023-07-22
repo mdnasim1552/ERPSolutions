@@ -42,53 +42,67 @@ namespace RealERPLIB.DapperRepository
         }
         public List<DataTable> GetDataTableList(string procedureName, DynamicParameters parameters)
         {
-            using (var reader = _dbConnection.QueryMultiple(procedureName, parameters, commandType: CommandType.StoredProcedure))// Dapper.SqlMapper.GridReader
+            using (var reader = _dbConnection.QueryMultiple(procedureName, parameters, commandType: CommandType.StoredProcedure))
             {
-                //var firstResultSet = reader.Read<dynamic>().ToList();
-
-                var resultSetList = new List<List<dynamic>>();
-
-                // Read each result set in a loop
-                while (!reader.IsConsumed)
-                {
-                    var resultSet = reader.Read<dynamic>().ToList();
-                    resultSetList.Add(resultSet);
-                }
-
-
-
-                //foreach (var result in firstResultSet)
-                //{
-                //    var nameValue = result.COMNAM; // Access the 'Name' property dynamically
-                //                                 // Do something with the 'nameValue'
-                //}
-
-                
-
                 List<DataTable> dataTables = new List<DataTable>();
 
-                //while (!reader.IsConsumed)
-                //{
-                //    var List = reader.Read();
-                //    DataTable dataTable = new DataTable();
-                //    dataTable.Load((DataTable)List);
-                //    dataTables.Add(dataTable);
-                //}
+                while (!reader.IsConsumed)
+                {
+                    var data = reader.Read();
+                    var dataTable = new DataTable();
 
-                //// Read all result sets into DataTables and add them to the list
-                //while (!reader.IsConsumed)
-                //{
-                //    dataTables.Add(reader.Read<DataTable>().FirstOrDefault());
-                //}
+                    // Create DataTable columns based on the dynamic property names and their types
+                    if (data.Any())
+                    {
+                        var dynamicProperties = (IDictionary<string, object>)data.First();
+                        foreach (var propertyName in dynamicProperties.Keys)
+                        {
+                            var propertyType = dynamicProperties[propertyName]?.GetType() ?? typeof(object);
+                            dataTable.Columns.Add(propertyName, propertyType);
+                        }
+                    }
+
+                    // Read data from the IEnumerable<dynamic> and load it into the DataTable
+                    foreach (var item in data)
+                    {
+                        var dataRow = dataTable.NewRow();
+                        var dynamicItem = (IDictionary<string, object>)item;
+                        foreach (var propertyName in dynamicItem.Keys)
+                        {
+                            dataRow[propertyName] = dynamicItem[propertyName];
+                        }
+                        dataTable.Rows.Add(dataRow);
+                    }
+
+                    dataTables.Add(dataTable);
+                }
+
                 return dataTables;
-                // Now you have a list of DataTables (dataTables) representing all the result sets.
             }
-            
+
+        }
+        public (List<User> users, List<Module> mod) GetUserAndCustomerLists(string procedureName, DynamicParameters parameters)
+        {
+            using (var reader = _dbConnection.QueryMultiple(procedureName, parameters, commandType: CommandType.StoredProcedure))
+            {
+                // Read data for the User class
+                List<User> users = reader.Read<User>().ToList();
+
+                // Read data for the Customer class
+                List<Module> mod = reader.Read<Module>().ToList();
+
+                return (users, mod);
+            }
         }
         public class User
         {
             public string comcod { get; set; }
             public string comnam { get; set; }
+        }
+        public class Module
+        {
+            public string moduleid { get; set; }//MODULEID
+            public string modulename { get; set; }//MODULENAME
         }
     }
 }
