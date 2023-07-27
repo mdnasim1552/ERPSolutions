@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+    // Retrieve the data from ViewBag or ViewData
+    //var moduleNames = ViewBag.ModuleNames as List<dynamic>;
+    // or
+    var moduleNames = ViewData["ModuleNames"] as List<dynamic>;
+}
+
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -32,7 +39,7 @@
             top: 0;
             left: 0;
             height: 100%;
-            width: 260px;
+            width: 318px;
             background: #11101d;
             z-index: 100;
             transition: all 0.5s ease;
@@ -136,6 +143,7 @@
                     font-weight: 400;
                     color: #fff;
                     transition: all 0.4s ease;
+
                 }
 
             .sidebar.close .nav-links li a .link_name {
@@ -178,6 +186,8 @@
                 display: block;
                 pointer-events: none;
                 transition: 0s;
+                max-height: 500px; 
+                overflow-y: auto;
             }
 
             .sidebar.close .nav-links li:hover .sub-menu {
@@ -213,7 +223,7 @@
             .sidebar .profile-details {
                 position: fixed;
                 bottom: 0;
-                width: 260px;
+                width: 318px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -271,8 +281,8 @@
             position: relative;
             background: #E4E9F7;
             height: 100vh;
-            left: 260px;
-            width: calc(100% - 260px);
+            left: 318px;
+            width: calc(100% - 318px);
             transition: all 0.5s ease;
         }
 
@@ -305,6 +315,9 @@
             height: 60px;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
      </style>
 </head>
 <body>
@@ -336,6 +349,29 @@
             <span class="logo_name">Home</span>
         </div>
         <ul class="nav-links">
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-file-blank'></i>
+                        <span class="link_name">Module</span>
+                    </a>
+                    <i class="bx bxs-chevron-down arrow"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li style="position: sticky; top: 0; z-index: 1; background-color: #1d1b31; "><a class="link_name" href="#">Module</a></li>
+
+                    @if (moduleNames != null && moduleNames.Count > 0)
+                    {
+                       @foreach (var m in moduleNames)
+                       {
+                            <li><a href="#">@m.modulename</a></li>
+                       }
+                    }
+                    @*<li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">PHP & MySQL</a></li>*@
+                </ul>
+            </li>
             <li>
                 <a href="#">
                     <i class="bx bx-grid-alt"></i>
@@ -635,6 +671,7 @@
             sidebarBtn.click(function () {
                 sidebar.toggleClass("close");
             });
+            $('.chzn-select').chosen({ search_contains: true });
         });
 
     </script>
