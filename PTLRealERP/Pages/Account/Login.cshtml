@@ -1,25 +1,40 @@
 ﻿@page
 @model PTLRealERP.Pages.Accounts.LoginModel
 @{
+    Layout = "~/Pages/Shared/_LoginLayout.cshtml";
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 border p-3 rounded">
+    <div class="row ">
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 border p-3 rounded" style="margin-top:100px;">
+            
             <form method="post">
                 <div class="mb-3">
-                    <label asp-for="Credential.Username"></label>
+                    <img src="~/Images/Comp_Logo/3101.jpg" class="rounded mx-auto d-block" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Credential.Company" class="text-white"> <i class='bx bx-cabinet'></i> Company</label>
+                    <select asp-for="Credential.Company" class="form-select select me-2" aria-label="Default select example" id="CategoryId" style="font-family:'Poppins', sans-serif;">
+                        <!-- <option selected>Open this select menu</option> -->
+                        <option value="1" selected>PDF</option>
+                        <option value="2">HTML</option>
+                        <option value="3">WORD</option>
+                        <option value="3">EXCEL</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Credential.Username" class="text-white"><i class='bx bx-user'></i> User Name</label>
                     <input type="text" asp-for="Credential.Username" class="form-control" placeholder="email address" />
                     <span asp-validation-for="Credential.Username" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="Credential.Password"></label>
+                    <label asp-for="Credential.Password" class="text-white"><i class='bx bx-lock-alt'></i> Password</label>
                     <input type="password" asp-for="Credential.Password" class="form-control" placeholder="password" />                   
                     <span asp-validation-for="Credential.Password" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <input type="checkbox" asp-for="Credential.IsRemember" class="form-check-input" />
-                    <label asp-for="Credential.IsRemember" class="form-check-label"></label>
+                    <label asp-for="Credential.IsRemember" class="form-check-label text-white "></label>
                 </div>
                 <div class="mb-3">
                     <input type="submit" class="btn w-100 btn-primary mb-2" value="Login" />
@@ -41,5 +56,56 @@
 @section Scripts{
     @{
         <partial name="_ValidationScriptsPartial" />
+        
     }
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+          rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <style>
+        .select2-selection--single {
+            height: 40px !important;
+            border-radius: 8px !important;
+        }
+
+        .select2-selection--single .select2-selection__rendered {
+            line-height: 40px !important;
+         }
+
+         .select2-selection--single .select2-selection__arrow {    
+            top: 8px !important;
+            right: 8px !important; 
+         }
+
+        .select2-container {      
+            width: 100% !important;
+        }
+
+        .select2-search--dropdown .select2-search__field {
+            border-radius: 8px !important;
+            height: 40px !important;
+        }
+
+        .select2-results__option--selectable {
+            border-radius: 8px !important;
+        }
+
+        .select2-results > .select2-results__options {
+            margin-left: 4px;
+            margin-right: 4px;
+            margin-bottom: 4px !important;
+        }
+
+        .select2-container--open .select2-dropdown--below {
+            border-radius: 8px !important;
+        }
+       
+    </style>
+    <script>
+        $(document).ready(function () {
+            // Initialize Select2 on the select element with the specified ID
+            $('#CategoryId').select2();
+        });
+    </script>
 }
