@@ -81,6 +81,16 @@ namespace RealERPLIB.DapperRepository
             }
 
         }
+        public List<T> GetList<T>(string procedureName, DynamicParameters parameters)
+        {
+            using (var reader = _dbConnection.QueryMultiple(procedureName, parameters, commandType: CommandType.StoredProcedure))
+            {
+                // Read data for the specified type 'T'
+                List<T> customList = reader.Read<T>().ToList();
+
+                return customList;
+            }
+        }
         public (List<User> users, List<Module> mod) GetUserAndCustomerLists(string procedureName, DynamicParameters parameters)
         {
             using (var reader = _dbConnection.QueryMultiple(procedureName, parameters, commandType: CommandType.StoredProcedure))

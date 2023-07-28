@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dapper;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -35,6 +37,20 @@ namespace RealERPLIB.Extensions
             }
 
             return dataTable;
+        }
+
+        public static List<T> ConvertToCustomList<T>(this List<dynamic> dynamicList)
+        {
+            var customList = new List<T>();
+
+            foreach (var item in dynamicList)
+            {
+                // Use Newtonsoft.Json to serialize and deserialize the dynamic object to the target custom class
+                var customItem = JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(item));
+                customList.Add(customItem);
+            }
+
+            return customList;
         }
     }
 }

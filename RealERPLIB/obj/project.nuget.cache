@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "/B1g5u889dDYphBCY6m9dkLEwR+vQYE7kqPekdFZ/wa3MR5y+Bg0wGm4YXIDM3SOVjmiH4HR5zGHRCeXyiSpWA==",
+  "dgSpecHash": "v3aq2ubYlfgSaKeRFmMTKl3lQ/BgDAdq+x9MoQRoQnUHgj+dlvbMykAyOCV3FlBxZxIJMEh2QZmcq0tid3ec2w==",
   "success": true,
   "projectFilePath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mdnas\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
