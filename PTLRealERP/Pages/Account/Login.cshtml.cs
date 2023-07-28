@@ -18,11 +18,15 @@ namespace PTLRealERP.Pages.Accounts
 {
     public class LoginModel : PageModel
     {
-        [BindProperty]
-        public Credential Credential { get; set; }
+        
         private readonly IDbConnection _dbConnection;
-        public DataTable MyDataTable { get; set; }
-        public List<List<dynamic>> result { get; set; }
+        [BindProperty]
+        public Credential Credential { get; set; } = new Credential();
+        [BindProperty]
+        public int SelectedCompanyId { get; set; }
+        public List<Company> CompanyList { get; set; }  = new List<Company>();
+        public DataTable MyDataTable { get; set; }= new DataTable();
+        public List<List<dynamic>> result { get; set; } = new List<List<dynamic>>();
 
         //public LoginModel(IDbConnection dbConnection)
         //{
@@ -77,15 +81,9 @@ namespace PTLRealERP.Pages.Accounts
             string Calltype = "COMPANYINFO";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@Calltype", Calltype);
-            //List<Company> companyList = _dapperService.GetList<Company>(procedureName, parameters);
-            result = _dapperService.GetDataList(procedureName, parameters);
-            List<Company> companyList = result[0].ConvertToCustomList<Company>();
-
-            foreach(var i in companyList)
-            {
-                Console.WriteLine(i.comnam);
-            }
-            //List<YourCustomClass> customList = _repository.GetList<YourCustomClass>("YourStoredProcedure", parameters);
+            CompanyList = _dapperService.GetList<Company>(procedureName, parameters);
+            //result = _dapperService.GetDataList(procedureName, parameters);
+            //List<Company> companyList = result[0].ConvertToCustomList<Company>();
         }
         public void OnGet()
         {
