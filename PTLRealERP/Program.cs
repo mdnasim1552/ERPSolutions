@@ -16,6 +16,10 @@ builder.Services.AddScoped<IDbConnection>(sp =>
 });
 builder.Services.AddScoped<IDapperService, DapperService>();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout duration
+});
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
@@ -47,7 +51,8 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
+// Step 2: Use session middleware
+app.UseSession();
 app.MapRazorPages();
 
 app.Run();

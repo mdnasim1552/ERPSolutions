@@ -71,13 +71,30 @@ namespace PTLRealERP.Pages.Accounts
             parameters.Add("@Desc1", userid);
             result = _dapperService.GetDataList(procedureName, parameters);
         }
+        private void GetCompanyInfo()
+        {
+            string procedureName = "SP_UTILITY_LOGIN_MGT";
+            string Calltype = "COMPANYINFO";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@Calltype", Calltype);
+            //List<Company> companyList = _dapperService.GetList<Company>(procedureName, parameters);
+            result = _dapperService.GetDataList(procedureName, parameters);
+            List<Company> companyList = result[0].ConvertToCustomList<Company>();
+
+            foreach(var i in companyList)
+            {
+                Console.WriteLine(i.comnam);
+            }
+            //List<YourCustomClass> customList = _repository.GetList<YourCustomClass>("YourStoredProcedure", parameters);
+        }
         public void OnGet()
         {
-            this.GetModulename();
+            this.GetCompanyInfo();
+            //this.GetModulename();
 
             //ViewBag.ModuleNames = result[0];
             // or
-            ViewData["ModuleNames"] = result[0];
+            //ViewData["ModuleNames"] = result[0];
             //var comcod = "3101";
             //var Calltype = "LOGIN";
             ////List<User> users = _dapperService.GetAll();
@@ -167,7 +184,15 @@ namespace PTLRealERP.Pages.Accounts
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [Display(Name = "Remember me")]
-        public bool IsRemember { get; set; }
-        public string Company { get; set; }
+        public bool IsRemember { get; set; } 
+    }
+    public class Company
+    {
+        //select slnum, comcod, comnam, comsnam,  comadd1+'<br />'+comadd2+' '+comadd3 as comadd, comadd1,comadd2, comadd3, comadd4 , combranch from compinf order by slnum, comcod asc
+        public string slnum { get; set; }
+        public string comcod { get; set; }
+        public string comnam { get; set; }
+        public string comsnam { get; set; }
+        public string comadd { get; set; }
     }
 }
