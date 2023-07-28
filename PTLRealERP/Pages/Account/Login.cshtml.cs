@@ -63,18 +63,7 @@ namespace PTLRealERP.Pages.Accounts
         //    ViewState["tblmoduleName"] = ds1.Tables[0];
 
         //}
-        private void GetModulename()
-        {
-            string comcod = "3101";
-            string procedureName = "SP_UTILITY_LOGIN_MGT";
-            string Calltype = "GETCOMMODULE";
-            string userid = "3101001";
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@Comp1", comcod);
-            parameters.Add("@Calltype", Calltype);
-            parameters.Add("@Desc1", userid);
-            result = _dapperService.GetDataList(procedureName, parameters);
-        }
+       
         private void GetCompanyInfo()
         {
             string procedureName = "SP_UTILITY_LOGIN_MGT";
@@ -186,11 +175,13 @@ namespace PTLRealERP.Pages.Accounts
     }
     public class Company
     {
-        //select slnum, comcod, comnam, comsnam,  comadd1+'<br />'+comadd2+' '+comadd3 as comadd, comadd1,comadd2, comadd3, comadd4 , combranch from compinf order by slnum, comcod asc
-        public string slnum { get; set; }
+        //select comcod,comsnam, comnam, comadd1,comadd2, comadd3, comadd4 from compinf order by comcod asc
         public string comcod { get; set; }
-        public string comnam { get; set; }
         public string comsnam { get; set; }
-        public string comadd { get; set; }
+        public string comnam { get; set; }    
+        public string comadd1 { get; set; }
+        public string comadd2 { get; set; }
+        public string comadd3 { get; set; }
+        public string comadd4 { get; set; }
     }
 }

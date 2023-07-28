@@ -3,6 +3,7 @@
     //var moduleNames = ViewBag.ModuleNames as List<dynamic>;
     // or
     var moduleNames = ViewData["ModuleNames"] as List<dynamic>;
+    var interfaceNames = ViewData["InterfaceNames"] as List<dynamic>;
 }
 
 <!DOCTYPE html>
@@ -372,6 +373,30 @@
                     <li><a href="#">PHP & MySQL</a></li>*@
                 </ul>
             </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-file-blank'></i>
+                        <span class="link_name">Interface</span>
+                    </a>
+                    <i class="bx bxs-chevron-down arrow"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li style="position: sticky; top: 0; z-index: 1; background-color: #1d1b31; "><a class="link_name" href="#">Interface</a></li>
+
+                    @if (interfaceNames != null && interfaceNames.Count > 0)
+                    {
+                        @foreach (var m in interfaceNames)
+                        {
+                            <li><a href="#">@m.interfacename</a></li>
+                        }
+                    }
+                    @*<li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">PHP & MySQL</a></li>*@
+                </ul>
+            </li>
+
             <li>
                 <a href="#">
                     <i class="bx bx-grid-alt"></i>
