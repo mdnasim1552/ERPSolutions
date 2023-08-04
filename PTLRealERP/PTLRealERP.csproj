@@ -19,4 +19,8 @@
     <ProjectReference Include="..\RealERPLIB\RealERPLIB.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Control Panel\" />
+  </ItemGroup>
+
 </Project>

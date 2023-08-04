@@ -158,6 +158,7 @@ namespace PTLRealERP.Pages.Accounts
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimprincipal, authProperties);
                 return RedirectToPage("/Index");
             }
+            this.GetCompanyInfo();
             return Page();
         }
     }
