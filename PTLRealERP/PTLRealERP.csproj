@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RealEntity\RealEntity.csproj" />
     <ProjectReference Include="..\RealERPLIB\RealERPLIB.csproj" />
   </ItemGroup>
 
