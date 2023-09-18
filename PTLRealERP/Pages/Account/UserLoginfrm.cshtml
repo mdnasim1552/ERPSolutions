@@ -4,10 +4,10 @@
 }
 
 <div class="card">
-    <div class="card-header" style="min-height:500px;">
+    <div class="card-header">
         <div class="row">
             <div class="col-md-12 table-responsive">
-                <table class="table table-sm table-hover caption-top" id="myTable" style="width:100% !important;">
+                <table class="table table-sm table-hover caption-top display" id="myTable" style="width:100% !important;">
                     <caption>List of users</caption>
                     <thead class="table-light">
                         <tr>
@@ -22,8 +22,12 @@
                             <th scope="col">Web mail Password</th>
                             <th scope="col">Emp_id</th>
                             <th scope="col">User Role</th>
+                            <th scope="col"></th>
+                           @* <th scope="col"></th>
+                            <th scope="col"></th>*@
                         </tr>
                     </thead>
+                    
                     
                 </table>
             </div>
@@ -31,21 +35,177 @@
         </div>   
     </div>
 </div>
+
+
+@* <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form for editing user data -->
+                <form id="editForm">
+                    <div class="form-group">
+                        <label for="comcod">Comcod</label>
+                        <input type="text" class="form-control" id="comcod" name="comcod">
+                    </div>
+                    <div class="form-group">
+                        <label for="usrid">User_id</label>
+                        <input type="text" class="form-control" id="usrid" name="usrid">
+                    </div>
+                    <!-- Add input fields for other user properties here -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> *@
 @section Scripts{
     @{
         <partial name="_ValidationScriptsPartial" />
     }
-   @* <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
             integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-            crossorigin="anonymous"></script>*@
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-1.13.6/af-2.6.0/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/b-print-2.4.1/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-1.13.6/af-2.6.0/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/b-print-2.4.1/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.js"></script>
-    
     <script>
         $(document).ready(function () {
+            var editedRow = null;
+            var currentPage = 0; // Track the current page
+            var table = $('#myTable').DataTable({
+                ajax: '/api/Users/myData',
+                scrollX: true,
+                scrollCollapse: true,
+                scrollY: '50vh',
+                columns: [
+                    {                       
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            // Render the row number (index + 1)
+                            return meta.row + 1;
+                        }
+                    }, // Placeholder for the row number column
+                    { data: 'comcod' },
+                    { data: 'usrid' },
+                    { data: 'usrsname' },
+                    { data: 'usrname' },
+                    { data: 'usrdesig' },
+                    { data: 'usractive' },
+                    { data: 'mailid' },
+                    { data: 'usrpass' },
+                    { data: 'empid' },
+                    { data: 'userrole' },
+                    { data: null, render: function () { return '<button class="edit-button">Edit</button>'; } } // Add Edit button
+                ]
+                
+            });
+
+            // Handle click event for Edit button
+            $('#myTable tbody').on('click', '.edit-button', function () {
+                var row = table.row($(this).parents('tr'));
+                editRow(row);
+            });
+
+            // Handle click event for Save button within the edited row
+            $('#myTable tbody').on('click', '.save-button', function () {
+                var row = table.row($(this).parents('tr'));
+                saveRow(row);
+            });
+
+            // Function to edit a row
+            function editRow(row) {
+                if (editedRow !== null && editedRow !== row) {
+                    saveRow(editedRow);
+                }
+                // Get the page number of the edited row
+                currentPage = row.page.info().page;
+
+                var data = row.data();
+                var columns = table.settings().init().columns;
+
+                row.nodes().to$().find('td').each(function (index) {
+                    if (index === 0) return; // Skip the row number column
+
+                    var column = columns[index];
+                    var field = column.data;
+                    var value = data[field];
+
+                    if (field === 'usractive') {
+                        // For boolean fields, display a checkbox for editing
+                        var checkbox = $('<input type="checkbox">').prop('checked', value);
+                        $(this).html(checkbox);
+                    } else {
+                        // For other fields, display an input field for editing
+                        var input = $('<input type="text" class="form-control">').val(value);
+                        $(this).html(input);
+                    }
+                });
+
+                // Add a Save button to the last column
+                row.nodes().to$().find('td:last').html('<button class="save-button">Save</button>');
+                editedRow = row;
+            }
+
+            // Function to save the edited row
+            function saveRow(row) {
+                var data = row.data();
+                var columns = table.settings().init().columns;
+
+                row.nodes().to$().find('td').each(function (index) {
+                    if (index === 0) return; // Skip the row number column
+
+                    var column = columns[index];
+                    var field = column.data;
+
+                    if (field === 'usractive') {
+                        // For boolean fields, get the checkbox value
+                        data[field] = $(this).find('input[type="checkbox"]').prop('checked');
+                    } else {
+                        // For other fields, get the input field value
+                        data[field] = $(this).find('input').val();
+                    }
+                });
+
+                // Update the data and redraw the row
+                row.data(data).draw();
+
+                // Return to the page where the row was edited
+                table.page(currentPage).draw(false);
+                editedRow = null;               
+            }
+
+            // // Populate the table with data from your API
+            // $.ajax({
+            //     type: "GET",
+            //     url: '/api/Users/myData', // Update with the correct route
+            //     dataType: "json",
+            //     success: function (data) {
+            //         table.rows.add(data.data).draw();
+            //     },
+            //     error: function () {
+            //         console.log("Error fetching data.");
+            //     }
+            // });
+        });
+    </script>
+
+}
+
+@*
+            $(document).ready(function () {
             var table = $('#myTable').DataTable({
                 ajax: '/api/Users/myData',  // URL to fetch JSON data
                 scrollX: true,
@@ -59,7 +219,7 @@
                             // Render the row number (index + 1)
                             return meta.row + 1;
                         }
-                    }, 
+                    },
                     { targets: 1, data: 'comcod' },
                     { targets: 2, data: 'usrid' },
                     { targets: 3, data: 'usrsname' },
@@ -69,14 +229,111 @@
                     { targets: 7, data: 'usrpass' },
                     { targets: 8, data: 'mailid' },
                     { targets: 9, data: 'empid' },
-                    { targets: 10, data: 'userrole' }
-                ],
-                
-            });
-        });
-    </script>
+                    { targets: 10, data: 'userrole' },
+                    {
+                        targets: -2,
+                        //edit button creation
+                        render: function (data, type, row) {
+                            return createButton('edit', row.id);
+                        }
+                    },
+                    {
+                        targets: -1,
+                        //delete button creation
+                        render: function (data, type, row) {
+                            return createButton('delete', row.id);
+                        }
+                    }
+                ]
 
-}
+            });
+            function createButton(buttonType, rowID) {
+                var buttonText = buttonType == "edit" ? "Edit" : "Delete";
+                //var buttonStyle = buttonType == "edit" ? "btn btn-outline-primary" : "btn btn-outline-danger";
+                //return '<button class="' + buttonType + ' ' +buttonStyle+'" type="button">' + buttonText + '</button>';
+
+                return '<button class="' + buttonType +'" type="button">' + buttonText + '</button>';
+            }
+
+
+            $('#myTable').on('click', 'tbody td .edit', function (e) {
+                fnResetControls();
+                var dataTable = $('#myTable').DataTable();
+                var clickedRow = $($(this).closest('td')).closest('tr');
+                $(clickedRow).find('td').each(function () {
+                    // do your cool stuff
+                    if ($(this).hasClass('editable')) {
+                        if ($(this).hasClass('text')) {
+                            var html = fnCreateTextBox($(this).html(), 'name');
+                            $(this).html($(html))
+                        }
+                    }
+                });
+
+
+                $('#myTable tbody tr td .update').removeClass('update').addClass('edit').html('Edit');
+                $('#myTable tbody tr td .cancel').removeClass('cancel').addClass('delete').html('Delete');
+                $(clickedRow).find('td .edit').removeClass('edit').addClass('update').html('Update');
+                $(clickedRow).find('td .delete').removeClass('delete').addClass('cancel').html('Cancel');
+
+            });
+
+            function fnCreateTextBox(value, fieldprop) {
+                return '<input data-field="' + fieldprop + '" type="text" value="' + value + '" ></input>';
+            }
+
+
+
+
+            $('#myTable').on('click', 'tbody td .cancel', function (e) {
+                fnResetControls();
+                $('#myTable tbody tr td .update').removeClass('update').addClass('edit').html('Edit');
+                $('#myTable tbody tr td .cancel').removeClass('cancel').addClass('delete').html('Delete');
+            });
+
+
+            function fnResetControls() {
+                var openedTextBox = $('#myTable').find('input');
+                $.each(openedTextBox, function (k, $cell) {
+                    $(openedTextBox[k]).closest('td').html($cell.value);
+                })
+            }
+
+
+
+            $('#myTable').on('click', 'tbody td .update', function (e) {
+
+                var openedTextBox = $('#myTable').find('input');
+                $.each(openedTextBox, function (k, $cell) {
+                    fnUpdateDataTableValue($cell, $cell.value);
+                    $(openedTextBox[k]).closest('td').html($cell.value);
+                })
+
+                $('#myTable tbody tr td .update').removeClass('update').addClass('edit').html('Edit');
+                $('#myTable tbody tr td .cancel').removeClass('cancel').addClass('delete').html('Delete');
+            });
+
+            function fnUpdateDataTableValue($inputCell, value) {
+                var dataTable = $('#myTable').DataTable();
+                var rowIndex = dataTable.row($($inputCell).closest('tr')).index();
+                var fieldName = $($inputCell).attr('data-field');
+                dataTable.rows().data()[rowIndex][fieldName] = value;
+            }
+
+
+        });
+*@
+
+
+
+
+
+
+
+
+
+
+
 
 
 
