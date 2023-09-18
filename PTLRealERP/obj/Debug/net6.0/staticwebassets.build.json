@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lRAlq2CRzLtmfIR4vavInP4lkDCTp+8r7NrZhasWhmE=",
+  "Hash": "TCZkB8Cs/4heMUMyeSKKvTs0E6AYJi+CFlpZn7F4AeA=",
   "Source": "PTLRealERP",
   "BasePath": "_content/PTLRealERP",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\datatables\\dataTables.editor.min.js",
+      "SourceId": "PTLRealERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\",
+      "BasePath": "_content/PTLRealERP",
+      "RelativePath": "datatables/dataTables.editor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\datatables\\dataTables.editor.min.js"
     },
     {
       "Identity": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\favicon.ico",

@@ -1,7 +1,6 @@
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\bin\Debug\net6.0\RealEntity.deps.json
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\bin\Debug\net6.0\RealEntity.dll
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\bin\Debug\net6.0\RealEntity.pdb
-C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net6.0\RealEntity.csproj.AssemblyReference.cache
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net6.0\RealEntity.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net6.0\RealEntity.AssemblyInfoInputs.cache
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net6.0\RealEntity.AssemblyInfo.cs
