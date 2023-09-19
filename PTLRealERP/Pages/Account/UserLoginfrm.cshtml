@@ -91,19 +91,23 @@
                 scrollCollapse: true,
                 scrollY: '50vh',
                 columns: [
-                    {                       
-                        data: null,
-                        render: function (data, type, row, meta) {
-                            // Render the row number (index + 1)
-                            return meta.row + 1;
-                        }
-                    }, // Placeholder for the row number column
+                    { data: 'row_num' },
                     { data: 'comcod' },
                     { data: 'usrid' },
                     { data: 'usrsname' },
                     { data: 'usrname' },
                     { data: 'usrdesig' },
-                    { data: 'usractive' },
+                    // { data: 'usractive' },
+                    {
+                        data: 'usractive',
+                        render: function (data, type, row) {
+                            if (type === 'display') {
+                                // Display a checkbox for editing
+                                return '<input type="checkbox" ' + (data ? 'checked' : '') + '>';
+                            }
+                            return data ? 'Yes' : 'No';
+                        }
+                    }, // Display as checkbox by default
                     { data: 'mailid' },
                     { data: 'usrpass' },
                     { data: 'empid' },
@@ -116,6 +120,12 @@
             // Handle click event for Edit button
             $('#myTable tbody').on('click', '.edit-button', function () {
                 var row = table.row($(this).parents('tr'));
+
+                if (editedRow !== null && editedRow !== row) {
+                    cancelEditRow(editedRow);
+                }
+                currentPage = row.page.info().page;
+
                 editRow(row);
             });
 
@@ -124,7 +134,11 @@
                 var row = table.row($(this).parents('tr'));
                 saveRow(row);
             });
-
+            // Handle click event for Cancel button within the edited row
+            $('#myTable tbody').on('click', '.cancel-button', function () {
+                var row = table.row($(this).parents('tr'));
+                cancelEditRow(row);
+            });
             // Function to edit a row
             function editRow(row) {
                 if (editedRow !== null && editedRow !== row) {
@@ -155,7 +169,7 @@
                 });
 
                 // Add a Save button to the last column
-                row.nodes().to$().find('td:last').html('<button class="save-button">Save</button>');
+                row.nodes().to$().find('td:last').html('<button class="save-button">Save</button> <button class="cancel-button">Cancel</button>');
                 editedRow = row;
             }
 
@@ -186,7 +200,30 @@
                 table.page(currentPage).draw(false);
                 editedRow = null;               
             }
+            // Function to cancel editing
+            function cancelEditRow(row) {
+                var data = row.data();
+                var columns = table.settings().init().columns;
 
+                row.nodes().to$().find('td').each(function (index) {
+                    if (index === 0) return;
+
+                    var column = columns[index];
+                    var field = column.data;
+
+                    if (field === 'usractive') {
+                        var checkbox = $('<input type="checkbox">').prop('checked', data[field]);
+                        $(this).html(checkbox);
+                    } else {
+                        var text = data[field];
+                        $(this).html(text);
+                    }
+                });
+
+                // Add the Edit button to the last column
+                row.nodes().to$().find('td:last').html('<button class="edit-button">Edit</button>');
+                editedRow = null;
+            }
             // // Populate the table with data from your API
             // $.ajax({
             //     type: "GET",
