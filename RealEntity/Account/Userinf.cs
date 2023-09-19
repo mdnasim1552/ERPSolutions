@@ -12,6 +12,7 @@ namespace RealEntity.Account
         {
             //select comcod,usrid,usrsname,usrname,usrdesig,usractive,usrpass,mailid,empid,userrole from userinf
         }
+        public string row_num { get; set; }
         public string comcod { get; set; }
         public string usrid { get; set; }
         public string usrsname { get; set; }
