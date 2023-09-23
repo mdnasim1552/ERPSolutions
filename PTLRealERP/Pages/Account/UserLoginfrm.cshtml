@@ -23,8 +23,7 @@
                             <th scope="col">Emp_id</th>
                             <th scope="col" style="width: 100px;">User Role</th>
                             <th scope="col"></th>
-                           @* <th scope="col"></th>
-                            <th scope="col"></th>*@
+                            @* <th scope="col"></th> *@
                         </tr>
                     </thead>
                     
@@ -121,7 +120,7 @@
                     { data: 'usrpass' },
                     { data: 'empid' },
                     { data: 'userrole' },
-                    { data: null, render: function () { return '<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm">Edit</button></div>'; } } // Add Edit button
+                    { data: null, render: function () { return '<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm" style="margin-right: 2px !important;">Edit</button><button class="delete-button btn btn-danger btn-sm">Delete</button></div>'; } } // Add Edit button
                 ],
                 'columnDefs': [{
                     'targets': [0,1,2,3],
@@ -186,7 +185,7 @@
                 var columns = table.settings().init().columns;
 
                 row.nodes().to$().find('td').each(function (index) {
-                    if (index === 0 || index === 1 || index === 2 || index === 9) return; // Skip the row number column
+                    if (index === 0 || index === 1 || index === 2 || index === 9 || index === 11) return; // Skip the row number column
 
                     var column = columns[index];
                     var field = column.data;
@@ -204,7 +203,7 @@
                 });
 
                 // Add a Save button to the last column
-                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button style="margin-right: 2px !important;" class="save-button btn btn-primary btn-sm">Save</button> <button class="cancel-button btn btn-primary btn-sm">Cancel</button></div>');
+                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button style="margin-right: 2px !important;" class="save-button btn btn-primary btn-sm">Save</button> <button class="cancel-button btn btn-primary btn-sm" style="margin-right: 2px !important;">Cancel</button> <button class="delete-button btn btn-danger btn-sm" style="display: none;">Delete</button></div>');
                 editedRow = row;
                 table.columns.adjust().draw(false);
                 //table.page(currentPage).draw(false);
@@ -212,11 +211,12 @@
 
             // Function to save the edited row
             function saveRow(row) {
+                // debugger;
                 var data = row.data();
                 var columns = table.settings().init().columns;
 
                 row.nodes().to$().find('td').each(function (index) {
-                    if (index === 0 || index === 1 || index === 2 || index === 9) return; // Skip the row number column
+                    if (index === 0 || index === 1 || index === 2 || index === 9 || index === 11) return; // Skip the row number column
 
                     var column = columns[index];
                     var field = column.data;
@@ -232,7 +232,7 @@
 
                 // Update the data and redraw the row
                 row.data(data).draw(false);
-
+                table.columns.adjust().draw(false);
                 // Return to the page where the row was edited
                 //table.page(currentPage).draw(false);
                 editedRow = null;               
@@ -258,7 +258,7 @@
                 });
 
                 // Add the Edit button to the last column
-                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm">Edit</button></div>');
+                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm" style="margin-right: 2px !important;">Edit</button> <button class="delete-button btn btn-danger btn-sm">Delete</button></div>');
                 editedRow = null;
                 table.columns.adjust().draw(false);
                 //table.page(currentPage).draw(false);
