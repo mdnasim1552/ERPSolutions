@@ -282,6 +282,20 @@
             //         console.log("Error fetching data.");
             //     }
             // });
+            $('#myTable tbody').on('change', 'input[type="checkbox"]', function () {
+
+                var cell = table.cell($(this).closest('td')); // Get the cell associated with the checkbox
+                var data = cell.data(); // Get the current cell data
+                data = $(this).prop('checked'); // Update the cell data with the checkbox state
+                cell.data(data).draw(false); // Redraw just the cell
+                // This event handler will be triggered when checkboxes are checked or unchecked
+
+                // Get the row associated with the checkbox
+                // var row = table.row($(this).parents('tr'));
+                // var data = row.data();              
+                // data['usractive'] = $(this).prop('checked');
+                // row.data(data).draw(false);
+            });
             $('#updateButton').on('click', function () {
                 var allData = table.rows().data().toArray();
 
