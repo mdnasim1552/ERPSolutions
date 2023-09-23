@@ -73,10 +73,6 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\datatables\\dataTables.editor.min.js",
-      "PackagePath": "staticwebassets\\datatables\\dataTables.editor.min.js"
-    },
-    {
       "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

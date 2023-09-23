@@ -697,6 +697,15 @@ ap@5.2.3/dist/css/bootstrap.min.css"
             sidebarBtn.click(function () {
                 sidebar.toggleClass("close");
             });
+
+            $(document).on("click", function (e) {
+                var sidebarContent = $(".sidebar .nav-links");
+
+                // Check if the click event target is not part of the sidebar and the sidebar button
+                if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0 && !sidebarBtn.is(e.target) && sidebarContent.has(e.target).length === 0) {
+                    sidebar.addClass("close");
+                }
+            });
             //$('.chzn-select').chosen({ search_contains: true });
         });
 
