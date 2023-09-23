@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RealEntity.Account;
 using RealERPLIB.DapperRepository;
+using System.Data;
+using System.Data.Common;
 
 namespace PTLRealERP.Pages.Controller
 {
@@ -12,8 +14,10 @@ namespace PTLRealERP.Pages.Controller
     public class UsersController : ControllerBase
     {
         private readonly IDapperService _dapperService;
-        public UsersController(IDapperService dapperService) {
+        private readonly IDbConnection _dbConnection;
+        public UsersController(IDapperService dapperService,IDbConnection dbConnection) {
             _dapperService = dapperService;
+            _dbConnection = dbConnection;
         }
 
 
@@ -65,6 +69,43 @@ namespace PTLRealERP.Pages.Controller
 
         //    return Ok(new { data = transformedData });
         //}
+
+        [HttpPost("updateData")]
+        public IActionResult UpdateUserData([FromBody] List<Userinf> updatedData)
+        {
+            try
+            {
+                // Here, 'updatedData' contains the data sent from the client in JSON format.
+                // You can iterate through the 'updatedData' list and update your database accordingly.
+                //Update userinf set usrsname=@Desc3,usrname=@Desc4,usrdesig=@Desc5,usractive=@Desc6,usrpass=@Desc7,mailid=@Desc8,userrole=@Desc9 where comcod=@Desc1 and usrid=@Desc2
+                string procedureName = "SP_UTILITY_LOGIN_MGT";
+                string Calltype = "UPDATEUSER";
+                
+                foreach (var user in updatedData)
+                {
+                    DynamicParameters parameters = new DynamicParameters();
+                    parameters.Add("@Calltype", Calltype);
+                    parameters.Add("@Comp1", user.comcod);
+                    parameters.Add("@Desc1", user.usrsname);
+                    parameters.Add("@Desc2", user.usrname);
+                    parameters.Add("@Desc3", user.usrdesig);
+                    parameters.Add("@Desc4", user.usractive);
+                    parameters.Add("@Desc5", user.usrpass);
+                    parameters.Add("@Desc6", user.mailid);
+                    parameters.Add("@Desc7", user.userrole);
+                    parameters.Add("@Desc8", user.usrid);
+                    _dbConnection.Execute(procedureName, parameters, commandType: CommandType.StoredProcedure);
+                }
+
+                // Return a success response
+                return Ok("Data updated successfully");
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                return BadRequest("An error occurred while updating data.");
+            }
+        }
 
     }
 }

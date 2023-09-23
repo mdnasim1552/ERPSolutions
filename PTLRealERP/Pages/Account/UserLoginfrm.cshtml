@@ -6,8 +6,8 @@
 <div class="card">
     <div class="card-header">
         <div class="row">
-            <div class="col-md-12 table-responsive">
-                <table class="table table-sm table-hover caption-top display" id="myTable" style="width:100% !important;">
+            <div class="col-md-12 table-responsive ">
+                <table class="table table-sm table-hover caption-top display" id="myTable">
                     <caption>List of users</caption>
                     <thead class="table-light">
                         <tr>
@@ -21,7 +21,7 @@
                             <th scope="col">Email_id</th>
                             <th scope="col">Web mail Password</th>
                             <th scope="col">Emp_id</th>
-                            <th scope="col">User Role</th>
+                            <th scope="col" style="width: 100px;">User Role</th>
                             <th scope="col"></th>
                            @* <th scope="col"></th>
                             <th scope="col"></th>*@
@@ -32,7 +32,8 @@
                 </table>
             </div>
            
-        </div>   
+        </div>
+        <button id="updateButton" class="btn btn-success btn-sm">Update</button>
     </div>
 </div>
 
@@ -69,7 +70,7 @@
 </div> *@
 @section Scripts{
     @{
-        <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />
     }
    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
             integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
@@ -84,12 +85,20 @@
     <script>
         $(document).ready(function () {
             var editedRow = null;
-            var currentPage = 0; // Track the current page
+            //var currentPage = 0; // Track the current page
             var table = $('#myTable').DataTable({
                 ajax: '/api/Users/myData',
                 scrollX: true,
                 scrollCollapse: true,
                 scrollY: '50vh',
+                // autoWidth: true,
+                paging: true,
+                lengthMenu: [
+                    [10,20, 25, 50, -1],
+                    ['10 rows', '20 rows', '25 rows', '50 rows', 'Show all']
+                ],
+                // "lengthMenu": [10, 20, 30, 40, 50, 100, [-1, "All"]],
+                pageLength: 10, // Default page size
                 columns: [
                     { data: 'row_num' },
                     { data: 'comcod' },
@@ -112,32 +121,58 @@
                     { data: 'usrpass' },
                     { data: 'empid' },
                     { data: 'userrole' },
-                    { data: null, render: function () { return '<button class="edit-button">Edit</button>'; } } // Add Edit button
-                ]
+                    { data: null, render: function () { return '<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm">Edit</button></div>'; } } // Add Edit button
+                ],
+                'columnDefs': [{
+                    'targets': [0,1,2,3],
+                    'orderable': false, // orderable false
+                }],
+                'order': []
                 
             });
 
             // Handle click event for Edit button
             $('#myTable tbody').on('click', '.edit-button', function () {
-                var row = table.row($(this).parents('tr'));
+                //closeSideNavbar();
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
 
-                if (editedRow !== null && editedRow !== row) {
-                    cancelEditRow(editedRow);
+                    if (editedRow !== null && editedRow !== row) {
+                        cancelEditRow(editedRow);
+                    }
+                    //currentPage = row.page.info().page;
+
+                    editRow(row);
+                } else {
+                    closeSideNavbar();
                 }
-                currentPage = row.page.info().page;
-
-                editRow(row);
+               
+                
             });
 
             // Handle click event for Save button within the edited row
             $('#myTable tbody').on('click', '.save-button', function () {
-                var row = table.row($(this).parents('tr'));
-                saveRow(row);
+                //closeSideNavbar();
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
+                    saveRow(row);
+                } else {
+                    closeSideNavbar();
+                }
+                
+                
             });
             // Handle click event for Cancel button within the edited row
             $('#myTable tbody').on('click', '.cancel-button', function () {
-                var row = table.row($(this).parents('tr'));
-                cancelEditRow(row);
+                //closeSideNavbar();
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
+                    cancelEditRow(row);
+                } else {
+                    closeSideNavbar();
+                }
+                
+                
             });
             // Function to edit a row
             function editRow(row) {
@@ -145,13 +180,13 @@
                     saveRow(editedRow);
                 }
                 // Get the page number of the edited row
-                currentPage = row.page.info().page;
+               // currentPage = row.page.info().page;
 
                 var data = row.data();
                 var columns = table.settings().init().columns;
 
                 row.nodes().to$().find('td').each(function (index) {
-                    if (index === 0) return; // Skip the row number column
+                    if (index === 0 || index === 1 || index === 2 || index === 9) return; // Skip the row number column
 
                     var column = columns[index];
                     var field = column.data;
@@ -169,8 +204,10 @@
                 });
 
                 // Add a Save button to the last column
-                row.nodes().to$().find('td:last').html('<button class="save-button">Save</button> <button class="cancel-button">Cancel</button>');
+                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button style="margin-right: 2px !important;" class="save-button btn btn-primary btn-sm">Save</button> <button class="cancel-button btn btn-primary btn-sm">Cancel</button></div>');
                 editedRow = row;
+                table.columns.adjust().draw(false);
+                //table.page(currentPage).draw(false);
             }
 
             // Function to save the edited row
@@ -179,7 +216,7 @@
                 var columns = table.settings().init().columns;
 
                 row.nodes().to$().find('td').each(function (index) {
-                    if (index === 0) return; // Skip the row number column
+                    if (index === 0 || index === 1 || index === 2 || index === 9) return; // Skip the row number column
 
                     var column = columns[index];
                     var field = column.data;
@@ -194,10 +231,10 @@
                 });
 
                 // Update the data and redraw the row
-                row.data(data).draw();
+                row.data(data).draw(false);
 
                 // Return to the page where the row was edited
-                table.page(currentPage).draw(false);
+                //table.page(currentPage).draw(false);
                 editedRow = null;               
             }
             // Function to cancel editing
@@ -206,7 +243,7 @@
                 var columns = table.settings().init().columns;
 
                 row.nodes().to$().find('td').each(function (index) {
-                    if (index === 0) return;
+                    if (index === 0 || index === 1 || index === 2 || index === 9) return;
 
                     var column = columns[index];
                     var field = column.data;
@@ -221,8 +258,17 @@
                 });
 
                 // Add the Edit button to the last column
-                row.nodes().to$().find('td:last').html('<button class="edit-button">Edit</button>');
+                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm">Edit</button></div>');
                 editedRow = null;
+                table.columns.adjust().draw(false);
+                //table.page(currentPage).draw(false);
+            }
+            function closeSideNavbar() {
+                let sidebar = $(".sidebar");
+                if (!sidebar.hasClass("close")) {
+                    // Close the sidebar first
+                    sidebar.addClass("close");
+                }
             }
             // // Populate the table with data from your API
             // $.ajax({
@@ -236,6 +282,23 @@
             //         console.log("Error fetching data.");
             //     }
             // });
+            $('#updateButton').on('click', function () {
+                var allData = table.rows().data().toArray();
+
+                $.ajax({
+                    url: '/api/Users/updateData', // Your server-side update endpoint
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(allData),
+                    success: function (response) {
+                        alert('Data updated successfully');
+                    },
+                    error: function (error) {
+                        console.error('Error updating data:', error);
+                    }
+                });
+            });
+
         });
     </script>
 

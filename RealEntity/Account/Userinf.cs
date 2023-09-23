@@ -22,7 +22,7 @@ namespace RealEntity.Account
         public string usrpass { get; set; }
         public string mailid { get; set; }
         public string empid { get; set; }
-        public string userrole { get; set; }
+        public int userrole { get; set; }
 
 
     }
