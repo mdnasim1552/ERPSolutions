@@ -9,7 +9,7 @@
             <div class="col-md-12 table-responsive ">
                 <table class="table table-sm table-hover caption-top display" id="myTable">
                     <caption>List of users</caption>
-                    <thead class="table-light">
+                    <thead class="table-info">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Comcod</th>
@@ -311,6 +311,30 @@
                         console.error('Error updating data:', error);
                     }
                 });
+            });
+
+            $('#myTable tbody').on('click', '.delete-button', function () {
+
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
+                    $.ajax({
+                        url: '/api/Users/deleteData', // Your server-side delete endpoint
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(row.data()), // Send the entire row data
+                        success: function (response) {
+                            row.remove().draw(false);
+                            alert('Data deleted successfully');
+                        },
+                        error: function (error) {
+                            console.error('Error deleting data:', error);
+                        }
+                    });
+                } else {
+                    closeSideNavbar();
+                }
+
+                
             });
 
         });

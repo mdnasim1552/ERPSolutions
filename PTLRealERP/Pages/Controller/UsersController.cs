@@ -107,5 +107,25 @@ namespace PTLRealERP.Pages.Controller
             }
         }
 
+        [HttpPost("deleteData")]
+        public IActionResult DeleteUserData([FromBody] Userinf user)
+        {
+            try
+            {
+                string procedureName = "SP_UTILITY_LOGIN_MGT";
+                string Calltype = "DELETEUSER";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Calltype", Calltype);
+                parameters.Add("@Comp1", user.comcod);
+                parameters.Add("@Desc1", user.usrid);
+                _dbConnection.Execute(procedureName, parameters, commandType: CommandType.StoredProcedure);
+                return Ok("Data deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("An error occurred while updating data.");
+            }
+        }
+
     }
 }
