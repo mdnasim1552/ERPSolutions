@@ -40,6 +40,47 @@ namespace RealERPLIB.DapperRepository
                 
             }
         }
+        public DataSet GetDataSets(string procedureName, DynamicParameters parameters)
+        {
+            using (var reader = _dbConnection.QueryMultiple(procedureName, parameters, commandType: CommandType.StoredProcedure))
+            {
+                DataSet dataSet = new DataSet();
+
+                while (!reader.IsConsumed)
+                {
+                    var data = reader.Read();
+                    var dataTable = new DataTable();
+
+                    // Create DataTable columns based on the dynamic property names and their types
+                    if (data.Any())
+                    {
+                        var dynamicProperties = (IDictionary<string, object>)data.First();
+                        foreach (var propertyName in dynamicProperties.Keys)
+                        {
+                            var propertyType = dynamicProperties[propertyName]?.GetType() ?? typeof(object);
+                            dataTable.Columns.Add(propertyName, propertyType);
+                        }
+                    }
+
+                    // Read data from the IEnumerable<dynamic> and load it into the DataTable
+                    foreach (var item in data)
+                    {
+                        var dataRow = dataTable.NewRow();
+                        var dynamicItem = (IDictionary<string, object>)item;
+                        foreach (var propertyName in dynamicItem.Keys)
+                        {
+                            dataRow[propertyName] = dynamicItem[propertyName];
+                        }
+                        dataTable.Rows.Add(dataRow);
+                    }
+
+                    dataSet.Tables.Add(dataTable);
+                }
+
+                return dataSet;
+            }
+
+        }
         public List<DataTable> GetDataTableList(string procedureName, DynamicParameters parameters)
         {
             using (var reader = _dbConnection.QueryMultiple(procedureName, parameters, commandType: CommandType.StoredProcedure))

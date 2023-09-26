@@ -1,8 +1,14 @@
 ﻿@page
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
     Layout = "~/Pages/Shared/_MasterLayout.cshtml";
+    //var moduleNames = HttpContext.Session.Get<List<dynamic>>("ModuleNames");
+    //var interfaceNames = HttpContext.Session.Get<List<dynamic>>("InterfaceNames");
+    //var moduleNames = JsonConvert.DeserializeObject<List<dynamic>>(HttpContext.Session.GetString("ModuleNames"));
+    //var interfaceNames = JsonConvert.DeserializeObject<List<dynamic>>(HttpContext.Session.GetString("InterfaceNames"));
 }
 
 <div class="text-center">

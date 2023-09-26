@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using RealERPLIB.DapperRepository;
 using System.Data;
 
@@ -13,7 +14,6 @@ namespace PTLRealERP.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly IDapperService _dapperService;
-
         public IndexModel(ILogger<IndexModel> logger, IDapperService dapperService)
         {
             _logger = logger;
@@ -23,7 +23,7 @@ namespace PTLRealERP.Pages
 
         public void OnGet()
         {
-            this.GETCOMMODULE_INTERFACE();         
+            //this.GETCOMMODULE_INTERFACE();         
         }
 
         private void GETCOMMODULE_INTERFACE()
@@ -39,6 +39,10 @@ namespace PTLRealERP.Pages
             List<List<dynamic>> listOfModule = _dapperService.GetDataList(procedureName, parameters);
             ViewData["ModuleNames"] = listOfModule[0];
             ViewData["InterfaceNames"] = listOfModule[1];
+            //HttpContext.Session.SetString("ModuleNames", JsonConvert.SerializeObject(listOfModule[0]));
+            //HttpContext.Session.SetString("InterfaceNames", JsonConvert.SerializeObject(listOfModule[1]));
+            //ViewData["ModuleNames"] = JsonConvert.DeserializeObject<List<dynamic>>(HttpContext.Session.GetString("ModuleNames"));
+            //ViewData["InterfaceNames"] = JsonConvert.DeserializeObject<List<dynamic>>(HttpContext.Session.GetString("InterfaceNames"));
         }
 
         //private void GetInterfacename()

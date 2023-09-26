@@ -1,11 +1,11 @@
-C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealERPLIB.deps.json
-C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealERPLIB.dll
-C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealERPLIB.pdb
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.csproj.AssemblyReference.cache
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.AssemblyInfoInputs.cache
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.AssemblyInfo.cs
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.csproj.CoreCompileInputs.cache
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealERPLIB.deps.json
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealERPLIB.dll
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealERPLIB.pdb
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.dll
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\refint\RealERPLIB.dll
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.pdb
