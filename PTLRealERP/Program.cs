@@ -15,6 +15,7 @@ builder.Services.AddScoped<IDbConnection>(sp =>
     return new SqlConnection(connectionString);
 });
 builder.Services.AddScoped<IDapperService, DapperService>();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddSession(options =>
 {
