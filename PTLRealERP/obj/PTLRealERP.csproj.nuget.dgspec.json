@@ -172,7 +172,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
+                "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -16,4 +16,8 @@
     <Folder Include="Library\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RealEntity\RealEntity.csproj" />
+  </ItemGroup>
+
 </Project>

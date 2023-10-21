@@ -10,3 +10,6 @@ C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\Rea
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\refint\RealERPLIB.dll
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.pdb
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\ref\RealERPLIB.dll
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealEntity.dll
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\bin\Debug\net6.0\RealEntity.pdb
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPLIB\obj\Debug\net6.0\RealERPLIB.csproj.CopyComplete

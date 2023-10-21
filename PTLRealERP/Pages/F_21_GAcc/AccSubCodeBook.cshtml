@@ -1,0 +1,7 @@
+﻿@page
+@model PTLRealERP.Pages.F_21_GAcc.AccSubCodeBookModel
+@{
+    var type = HttpContext.Request.Query["Type"];
+    ViewData["Title"] = type == "Dept" ? "Department Code" : "";
+    Layout = "~/Pages/Shared/_MasterLayout.cshtml";
+}

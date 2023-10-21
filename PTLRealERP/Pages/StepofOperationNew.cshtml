@@ -6,7 +6,7 @@
     <div class="card-header" style="min-height:500px;">
         <div class="row">
             <div class="col-md-4">
-                <select class="form-select me-2" aria-label="Default select example">
+                <select class="form-select me-2 MDropdown" aria-label="Default select example">
                     <!-- <option selected>Open this select menu</option> -->
                     <option value="1" selected>PDF</option>
                     <option value="2">HTML</option>
@@ -15,7 +15,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <select class="form-select me-2" aria-label="Default select example">
+                <select class="form-select me-2 MDropdown" aria-label="Default select example">
                     <!-- <option selected>Open this select menu</option> -->
                     <option value="1" selected>PDF</option>
                     <option value="2">HTML</option>
@@ -24,7 +24,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <select class="form-select me-2" aria-label="Default select example">
+                <select class="form-select me-2 MDropdown" aria-label="Default select example">
                     <!-- <option selected>Open this select menu</option> -->
                     <option value="1" selected>PDF</option>
                     <option value="2">HTML</option>
@@ -35,7 +35,27 @@
         </div>
         <div class="row">
             <div class="col-md-4 ">
-                <h6 id="leftmheader" class="card-header text-white" style="background-color:#0989C6;">A. Operational Menu</h6>
+                <div class="card first">
+                    <div id="leftmheader" class="card-header">A. Operational Menu</div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            @foreach (var item in Model.menuItems)
+                            {
+                                if (item.itemslct == false)
+                                {
+                                    <li><h6 id="LeftMenuHeader">@item.itemdesc</h6></li>
+                                }
+                                else
+                                {
+                                    <li><a href=@item.itemurl id="LeftColumn">@item.itemdesc</a></li>
+                                }
+
+                            }
+                        </ul>
+                    </div>
+                    
+                </div>
+                
             </div>
             <div class="col-md-4">
                 <h6 id="midmheader" class="card-header text-white" style="background-color:#0989C6;">B. General Report</h6>
@@ -46,3 +66,29 @@
         </div>
     </div>
 </div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+    <style>
+        #LeftMenuHeader{
+            background-color: #DFF0D8;
+            /* font-size: 14px; */
+            padding: 4px;
+        }
+
+        #LeftColumn{
+            color: #008000 !important;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        #leftmheader {
+            padding: 0.3rem;
+            background-color: #0989C6;
+            color: #ffffff;
+        }
+
+    </style>
+}

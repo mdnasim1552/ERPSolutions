@@ -172,6 +172,16 @@
             "rid": "win"
           }
         }
+      },
+      "RealEntity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/RealEntity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RealEntity.dll": {}
+        }
       }
     }
   },
@@ -536,12 +546,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "RealEntity/1.0.0": {
+      "type": "project",
+      "path": "../RealEntity/RealEntity.csproj",
+      "msbuildProject": "../RealEntity/RealEntity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Dapper >= 2.0.143",
       "Newtonsoft.Json >= 13.0.3",
+      "RealEntity >= 1.0.0",
       "System.Data.SqlClient >= 4.8.5"
     ]
   },
@@ -577,7 +593,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
+              "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
