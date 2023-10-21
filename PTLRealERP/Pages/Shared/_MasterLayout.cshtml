@@ -37,7 +37,8 @@ ap@5.2.3/dist/css/bootstrap.min.css"
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            /* font-family: 'Poppins', sans-serif; */
+            font-family: Calibri, Arial, -apple-system, BlinkMacSystemFont, Fira Sans, Helvetica Neue, Apple Color Emoji, sans-serif,Open Sans;
         }
 
         .sidebar {
@@ -718,7 +719,7 @@ ap@5.2.3/dist/css/bootstrap.min.css"
                 success: function (data) {
                     let ul = $("#module"); // Get the <ul> element
                     $.each(data.data, function (index, module) {
-                        let li = '<li><a href="#">' + module.modulename + '</a></li>';
+                        let li = '<li><a href="/StepofOperationNew?Type=' + module.moduleid + '">' + module.modulename + '</a></li>';
                         ul.append(li);
                     });
                 },
