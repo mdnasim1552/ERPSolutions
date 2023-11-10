@@ -17,5 +17,6 @@ namespace RealERPLIB.DapperRepository
         List<List<dynamic>> GetDataList(string procedureName, DynamicParameters parameters);
         (List<User> users, List<Module> mod) GetUserAndCustomerLists(string procedureName, DynamicParameters parameters);
         List<T> GetList<T>(string procedureName, DynamicParameters parameters);
+        DataSet GetDataSets(string procedureName, DynamicParameters parameters);
     }
 }

@@ -23,7 +23,7 @@ namespace PTLRealERP.Pages.Accounts
         [BindProperty]
         public Credential Credential { get; set; } = new Credential();
         [BindProperty]
-        public int SelectedCompanyId { get; set; }
+        public string SelectedCompanyId { get; set; }
         public List<Company> CompanyList { get; set; }  = new List<Company>();
         public DataTable MyDataTable { get; set; }= new DataTable();
         public List<List<dynamic>> result { get; set; } = new List<List<dynamic>>();
@@ -140,7 +140,16 @@ namespace PTLRealERP.Pages.Accounts
         }
         public async Task<IActionResult> OnPostAsync() {
             if (!ModelState.IsValid) return Page();
-            if(Credential.Username=="admin" && Credential.Password == "password")
+            string procedureName = "SP_UTILITY_LOGIN_MGT";
+            string Calltype = "COMPANYINFO";
+            string username = Credential.Username;
+            string password = Credential.Password;
+            string comcod = SelectedCompanyId;
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@Calltype", Calltype);
+            //DataSet ds1 = _dapperService.GetDataSets(procedureName, parameters);
+
+            if (Credential.Username=="admin" && Credential.Password == "password")
             {
                 var claims = new List<Claim>
                 {

@@ -5,3 +5,61 @@
     ViewData["Title"] = type == "Dept" ? "Department Code" : "";
     Layout = "~/Pages/Shared/_MasterLayout.cshtml";
 }
+
+<div class="card">
+    <div class="card-header">
+        <form method="post">
+            <div class="row">
+
+                <div class="col-md-2">
+                    <label for="groupid">Group</label>
+                    <select id="groupid" class="form-select select me-2" aria-label="Default select example">
+                        <option value=2 selected>Main Code</option>
+                        <option value=4>Sub Code-1</option>
+                        <option value=7>Sub Code-2</option>
+                        <option value=9>Sub Code-3</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+
+   
+    <script>
+        $(document).ready(function () {
+            // Initialize Select2 on the select element with the specified ID
+            $('#groupid').select2();
+            $('#CategoryId').on('change', function () {
+                var selectedCompanyId = $(this).val();
+                var imageContainer = $('#imageContainer');
+                var img = imageContainer.find('img');
+
+                if (selectedCompanyId) {
+                    // Set the new image src based on the selectedCompanyId
+                    var imageUrl = '/Images/Comp_Logo/' + selectedCompanyId + '.jpg';
+                    img.attr('src', imageUrl);
+                } else {
+                    // If no company is selected, show the default image
+                    img.attr('src', '~/Images/Comp_Logo/default.jpg');
+                }
+            });
+
+        });
+
+
+    </script>
+}
