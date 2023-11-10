@@ -8,5 +8,7 @@ namespace PTLRealERP.Pages.F_21_GAcc
         public void OnGet()
         {
         }
+        public void OnPost() { 
+        }
     }
 }

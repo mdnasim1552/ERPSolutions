@@ -14,7 +14,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="text-white" for="CategoryId"> <i class='bx bx-cabinet'></i> Company</label>
-                    <select class="form-select select me-2" asp-for="SelectedCompanyId" aria-label="Default select example" id="CategoryId" style="font-family:'Poppins', sans-serif;">
+                    <select class="form-select select me-2" asp-for="SelectedCompanyId" aria-label="Default select example" id="CategoryId" style="width: 100%;">
                         <!-- <option selected>Open this select menu</option> -->           
                         <option value="" selected>-- Select Company --</option>
                         @foreach(var company in Model.CompanyList){
@@ -83,9 +83,9 @@
             right: 8px !important; 
          }
 
-        .select2-container {      
+        /* .select2-container {      
             width: 100% !important;
-        }
+        } */
 
         .select2-search--dropdown .select2-search__field {
             border-radius: 8px !important;
