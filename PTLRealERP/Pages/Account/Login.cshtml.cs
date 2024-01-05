@@ -141,15 +141,17 @@ namespace PTLRealERP.Pages.Accounts
         public async Task<IActionResult> OnPostAsync() {
             if (!ModelState.IsValid) return Page();
             string procedureName = "SP_UTILITY_LOGIN_MGT";
-            string Calltype = "COMPANYINFO";
+            string Calltype = "LOGINUSER";
             string username = Credential.Username;
-            string password = Credential.Password;
+            string password = ASTUtility.EncodePassword(Credential.Password);//ASTUtility.EncodePassword(this.txtuserpass.Text.Trim());
             string comcod = SelectedCompanyId;
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@Calltype", Calltype);
-            //DataSet ds1 = _dapperService.GetDataSets(procedureName, parameters);
-
-            if (Credential.Username=="admin" && Credential.Password == "password")
+            parameters.Add("@Comp1", comcod);
+            parameters.Add("@Desc1", username);
+            parameters.Add("@Desc2", password);
+            DataSet ds1 = _dapperService.GetDataSets(procedureName, parameters);
+            if (ds1.Tables[0].Rows.Count == 1)
             {
                 var claims = new List<Claim>
                 {
@@ -158,17 +160,20 @@ namespace PTLRealERP.Pages.Accounts
                     new Claim("Department","HR"),
                     new Claim("Admin","true")
                 };
-                ClaimsIdentity identity=new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);//we can use CookieAuthenticationDefaults.AuthenticationScheme (constant) instead of "MyCookieAuth"
-                ClaimsPrincipal claimprincipal=new ClaimsPrincipal(identity);
+                ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);//we can use CookieAuthenticationDefaults.AuthenticationScheme (constant) instead of "MyCookieAuth"
+                ClaimsPrincipal claimprincipal = new ClaimsPrincipal(identity);
                 var authProperties = new AuthenticationProperties
                 {
-                    IsPersistent=Credential.IsRemember
+                    IsPersistent = Credential.IsRemember
                 };
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimprincipal, authProperties);
                 return RedirectToPage("/Index");
             }
-            this.GetCompanyInfo();
-            return Page();
+            else {
+                this.GetCompanyInfo();
+                return Page();
+            }
+            
         }
     }
     public class Credential

@@ -145,6 +145,11 @@ namespace RealERPLIB.DapperRepository
                 return (users, mod);
             }
         }
+        public bool UpdateUser<T>(List<T> updatedData)
+        {
+
+            return true;
+        }
         public class User
         {
             public string comcod { get; set; }

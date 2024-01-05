@@ -5,6 +5,7 @@ C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\Re
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\RealERPRDLC.AssemblyInfoInputs.cache
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\RealERPRDLC.AssemblyInfo.cs
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\RealERPRDLC.csproj.CoreCompileInputs.cache
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\RealERPRDLC.sourcelink.json
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\RealERPRDLC.dll
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\refint\RealERPRDLC.dll
 C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net6.0\RealERPRDLC.pdb
