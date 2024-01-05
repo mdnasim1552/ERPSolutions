@@ -55,7 +55,8 @@ app.UseAuthorization();
 // Step 2: Use session middleware
 app.UseSession();
 // Map API controllers
-app.MapControllers();  // Add this line to enable API routing
+app.UseEndpoints(endpoints => endpoints.MapControllers());
+//app.MapControllers();  // Add this line to enable API routing
 app.MapRazorPages();
 
 app.Run();
