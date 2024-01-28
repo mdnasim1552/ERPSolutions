@@ -35,19 +35,21 @@
         </div>
         <div class="row">
             <div class="col-md-4 ">
-                <div class="card first">
-                    <div id="leftmheader" class="card-header">A. Operational Menu</div>
+                <div class="card">
+                    <div>
+                        <h6 id="leftmheader" class="card-header text-white" style="background-color: #0989C6;">A. Operational Menu</h6>
+                    </div>                  
                     <div class="card-body">
                         <ul class="list-unstyled">
                             @foreach (var item in Model.menuItems)
                             {
                                 if (item.itemslct == false)
                                 {
-                                    <li><h6 id="LeftMenuHeader">@item.itemdesc</h6></li>
+                                    <li><h6 id="LeftMenuHeader" style="background-color: #DFF0D8;padding: 4px;">@item.itemdesc</h6></li>
                                 }
                                 else
                                 {
-                                    <li><a href=@item.itemurl id="LeftColumn">@item.itemdesc</a></li>
+                                    <li><a href=@item.itemurl id="LeftColumn" style="color: #008000 !important;text-decoration: none;font-size: 0.9rem;">@item.itemdesc</a></li>
                                 }
 
                             }
@@ -72,9 +74,8 @@
 
     }
     <style>
-        #LeftMenuHeader{
+        /* #LeftMenuHeader{
             background-color: #DFF0D8;
-            /* font-size: 14px; */
             padding: 4px;
         }
 
@@ -88,7 +89,7 @@
             padding: 0.3rem;
             background-color: #0989C6;
             color: #ffffff;
-        }
+        } */
 
     </style>
 }

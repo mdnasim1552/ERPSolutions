@@ -1,3 +1,4 @@
+using ERP_WEB_API.DataAccess;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using RealERPLIB.DapperRepository;
 using System.Data;
@@ -14,7 +15,11 @@ builder.Services.AddScoped<IDbConnection>(sp =>
     var connectionString = configuration.GetConnectionString("DefaultConnection");
     return new SqlConnection(connectionString);
 });
+builder.Services.AddSingleton<DapperContext>();
+
 builder.Services.AddScoped<IDapperService, DapperService>();
+
+//builder.Services.AddScoped<IProcessAccess, ProcessAccess>();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddSession(options =>

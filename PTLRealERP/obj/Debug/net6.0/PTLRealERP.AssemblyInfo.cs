@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PTLRealERP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57e146bb0042f3bc8cff73aa9ab153497abf47ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db32a8d9bc7ffccca39a9ee6b043fb96204e18f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("PTLRealERP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PTLRealERP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

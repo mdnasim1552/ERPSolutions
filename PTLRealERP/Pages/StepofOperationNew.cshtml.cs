@@ -9,12 +9,12 @@ namespace PTLRealERP.Pages
     {
         public string Type { get; private set; }
         public List<MenuItems> menuItems { get; set; } = new List<MenuItems>();
-        public void OnGet()
+        public async Task OnGet()
         {
             Type = HttpContext.Request.Query["Type"];
             if (Type == "81")
             {
-                menuItems = ConstantInfo.MenuAllHR();
+                menuItems =await ConstantInfo.MenuAllHR();
             }
             
         }
