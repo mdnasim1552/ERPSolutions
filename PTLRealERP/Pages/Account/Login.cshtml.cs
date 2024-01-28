@@ -19,7 +19,6 @@ namespace PTLRealERP.Pages.Accounts
     public class LoginModel : PageModel
     {
         
-        private readonly IDbConnection _dbConnection;
         [BindProperty]
         public Credential Credential { get; set; } = new Credential();
         [BindProperty]
@@ -34,10 +33,9 @@ namespace PTLRealERP.Pages.Accounts
         //}
         private readonly IDapperService _dapperService;
 
-        public LoginModel(IDapperService dapperService, IDbConnection dbConnection)
+        public LoginModel(IDapperService dapperService)
         {
             _dapperService = dapperService;
-            _dbConnection= dbConnection;
         }
 
         //private void GetModulename()
@@ -64,19 +62,20 @@ namespace PTLRealERP.Pages.Accounts
 
         //}
        
-        private void GetCompanyInfo()
+        private async Task GetCompanyInfoAsync()
         {
             string procedureName = "SP_UTILITY_LOGIN_MGT";
             string Calltype = "COMPANYINFO";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@Calltype", Calltype);
-            CompanyList = _dapperService.GetList<Company>(procedureName, parameters);
+            //CompanyList = _dapperService.GetList<Company>(procedureName, parameters);
+            CompanyList = await _dapperService.GetListAsync<Company>(procedureName, parameters);
             //result = _dapperService.GetDataList(procedureName, parameters);
             //List<Company> companyList = result[0].ConvertToCustomList<Company>();
         }
-        public void OnGet()
+        public async Task OnGet()
         {
-            this.GetCompanyInfo();
+            await this.GetCompanyInfoAsync();
             //this.GetModulename();
 
             //ViewBag.ModuleNames = result[0];
@@ -150,13 +149,15 @@ namespace PTLRealERP.Pages.Accounts
             parameters.Add("@Comp1", comcod);
             parameters.Add("@Desc1", username);
             parameters.Add("@Desc2", password);
-            DataSet ds1 = _dapperService.GetDataSets(procedureName, parameters);
+            DataSet ds1 =await _dapperService.GetDataSetsAsync(procedureName, parameters);
             if (ds1.Tables[0].Rows.Count == 1)
             {
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name,"admin"),
                     new Claim(ClaimTypes.Email,"admin@mywebside.com"),
+                    new Claim("Image", "/Images/Comp_Logo/3101.jpg"), // Set the actual path to the image
+                    new Claim("Designation", "Administrator"), // Set the actual designation
                     new Claim("Department","HR"),
                     new Claim("Admin","true")
                 };
@@ -170,7 +171,7 @@ namespace PTLRealERP.Pages.Accounts
                 return RedirectToPage("/Index");
             }
             else {
-                this.GetCompanyInfo();
+                await this.GetCompanyInfoAsync();
                 return Page();
             }
             

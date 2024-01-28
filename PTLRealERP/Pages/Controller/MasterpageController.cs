@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -13,17 +14,16 @@ namespace PTLRealERP.Pages.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MasterpageController : ControllerBase
     {
         private readonly IDapperService _dapperService;
-        private readonly IDbConnection _dbConnection;
-        public MasterpageController(IDapperService dapperService, IDbConnection dbConnection)
+        public MasterpageController(IDapperService dapperService)
         {
             _dapperService = dapperService;
-            _dbConnection = dbConnection;
         }
         [HttpGet("ModuleData")]
-        public IActionResult OnGetModule()
+        public async Task<IActionResult> OnGetModule()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace PTLRealERP.Pages.Controller
                 string Calltype = "GETCOMMODULE";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Calltype", Calltype);
-                List<Modules> listOfModule = _dapperService.GetList<Modules>(procedureName, parameters);
+                List<Modules> listOfModule =await _dapperService.GetListAsync<Modules>(procedureName, parameters);
                 
                 return Ok(new { data = listOfModule });
             }
@@ -43,7 +43,7 @@ namespace PTLRealERP.Pages.Controller
         }
 
         [HttpGet("InterfaceData")]
-        public IActionResult OnGetInterface()
+        public async Task<IActionResult> OnGetInterface()
         {
             try
             {
@@ -51,7 +51,7 @@ namespace PTLRealERP.Pages.Controller
                 string Calltype = "GETINTERFACE";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Calltype", Calltype);
-                List<Interfaces> listOfInterface = _dapperService.GetList<Interfaces>(procedureName, parameters);
+                List<Interfaces> listOfInterface =await _dapperService.GetListAsync<Interfaces>(procedureName, parameters);
                 return Ok(new { data = listOfInterface });
             }
             catch (Exception ex)

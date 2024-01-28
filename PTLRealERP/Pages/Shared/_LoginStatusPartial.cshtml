@@ -1,0 +1,27 @@
+﻿@{
+    // var claim = User as ClaimsPrincipal;
+    // var user = claim.Identity;
+    // var isAuthenticated = user != null && user.IsAuthenticated;
+    // var username = isAuthenticated ? user.Name : "Guest";
+    // var designation = isAuthenticated ? user.FindFirst("Designation")?.Value : "Guest Designation";
+    // var imagePath = isAuthenticated ? user.FindFirst("Image")?.Value : "/path/to/default-image.jpg"; // Set the default image path
+
+
+    var isAuthenticated = User.Identity.IsAuthenticated;
+    var username = isAuthenticated ? User.Identity.Name : "Guest";
+    var designationClaim = User.Claims.FirstOrDefault(c => c.Type == "Designation");
+    var designation = designationClaim?.Value ?? "Guest Designation";
+    var imagePathClaim = User.Claims.FirstOrDefault(c => c.Type == "Image");
+    var imagePath = imagePathClaim?.Value ?? "/Images/Comp_Logo/3101.jpg"; // Set the default image path
+}
+
+<div class="profile-details">
+    <div class="profile-content">
+        <img src="@imagePath" class="BxMenu" alt="Profile Image" />
+    </div>
+    <div class="name-job">
+        <div class="profile_name">@username</div>
+        <div class="job">@designation</div>
+    </div>
+    <a asp-page="/Account/Logout"><i class="bx bx-log-out"></i></a>
+</div>
