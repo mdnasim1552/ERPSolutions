@@ -270,6 +270,23 @@ namespace RealERPLIB.DapperRepository
 
            
         }
+        public async Task<T> GetFirstOrDefaultAsync<T>(string procedureName, DynamicParameters parameters)
+        {
+            try
+            {
+                using (var connection = _context.CreateConnection())
+                {
+                    var result = await connection.QueryFirstOrDefaultAsync<T>(procedureName, parameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetFirstOrDefaultAsync: {ex.Message}");
+                throw; // Re-throw the exception for higher-level handling
+            }
+        }
+
         public (List<User> users, List<Module> mod) GetUserAndCustomerLists(string procedureName, DynamicParameters parameters)
         {
             using (var connection = _context.CreateConnection())

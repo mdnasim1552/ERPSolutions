@@ -21,6 +21,7 @@ namespace RealERPLIB.DapperRepository
         (List<User> users, List<Module> mod) GetUserAndCustomerLists(string procedureName, DynamicParameters parameters);
         List<T> GetList<T>(string procedureName, DynamicParameters parameters);
         Task<List<T>> GetListAsync<T>(string procedureName, DynamicParameters parameters);
+        Task<T> GetFirstOrDefaultAsync<T>(string procedureName, DynamicParameters parameters);
         DataSet GetDataSets(string procedureName, DynamicParameters parameters);
         Task<DataSet> GetDataSetsAsync(string procedureName, DynamicParameters parameters);
         Task<bool> ExecuteTransactionalOperationAsync(string SQLprocName, DynamicParameters parameters);

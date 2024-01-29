@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.VisualBasic;
+using RealEntity.Account;
 using RealERPLIB.DapperRepository;
 using RealERPLIB.Extensions;
 using System.Collections;
@@ -27,10 +28,6 @@ namespace PTLRealERP.Pages.Accounts
         public DataTable MyDataTable { get; set; }= new DataTable();
         public List<List<dynamic>> result { get; set; } = new List<List<dynamic>>();
 
-        //public LoginModel(IDbConnection dbConnection)
-        //{
-        //    _dbConnection = dbConnection;
-        //}
         private readonly IDapperService _dapperService;
 
         public LoginModel(IDapperService dapperService)
@@ -149,15 +146,15 @@ namespace PTLRealERP.Pages.Accounts
             parameters.Add("@Comp1", comcod);
             parameters.Add("@Desc1", username);
             parameters.Add("@Desc2", password);
-            DataSet ds1 =await _dapperService.GetDataSetsAsync(procedureName, parameters);
-            if (ds1.Tables[0].Rows.Count == 1)
+            var LoginUsers = await _dapperService.GetFirstOrDefaultAsync<LoginUsers>(procedureName, parameters);
+            if (LoginUsers != null)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,"admin"),
-                    new Claim(ClaimTypes.Email,"admin@mywebside.com"),
+                    new Claim(ClaimTypes.Name,LoginUsers.usrname),
+                    new Claim(ClaimTypes.Email,LoginUsers.mailid),
                     new Claim("Image", "/Images/Comp_Logo/3101.jpg"), // Set the actual path to the image
-                    new Claim("Designation", "Administrator"), // Set the actual designation
+                    new Claim("Designation", LoginUsers.usrdesig), // Set the actual designation
                     new Claim("Department","HR"),
                     new Claim("Admin","true")
                 };
@@ -177,27 +174,6 @@ namespace PTLRealERP.Pages.Accounts
             
         }
     }
-    public class Credential
-    {
-        
-        [Required]
-        [Display(Name ="User Name")]
-        public string Username { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-        [Display(Name = "Remember me")]
-        public bool IsRemember { get; set; } 
-    }
-    public class Company
-    {
-        //select comcod,comsnam, comnam, comadd1,comadd2, comadd3, comadd4 from compinf order by comcod asc
-        public string comcod { get; set; }
-        public string comsnam { get; set; }
-        public string comnam { get; set; }    
-        public string comadd1 { get; set; }
-        public string comadd2 { get; set; }
-        public string comadd3 { get; set; }
-        public string comadd4 { get; set; }
-    }
+   
+   
 }

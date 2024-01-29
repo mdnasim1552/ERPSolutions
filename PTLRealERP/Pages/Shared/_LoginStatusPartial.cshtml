@@ -1,12 +1,4 @@
 ﻿@{
-    // var claim = User as ClaimsPrincipal;
-    // var user = claim.Identity;
-    // var isAuthenticated = user != null && user.IsAuthenticated;
-    // var username = isAuthenticated ? user.Name : "Guest";
-    // var designation = isAuthenticated ? user.FindFirst("Designation")?.Value : "Guest Designation";
-    // var imagePath = isAuthenticated ? user.FindFirst("Image")?.Value : "/path/to/default-image.jpg"; // Set the default image path
-
-
     var isAuthenticated = User.Identity.IsAuthenticated;
     var username = isAuthenticated ? User.Identity.Name : "Guest";
     var designationClaim = User.Claims.FirstOrDefault(c => c.Type == "Designation");
