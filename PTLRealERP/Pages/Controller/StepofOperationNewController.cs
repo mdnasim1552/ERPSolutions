@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RealERPLIB.DapperRepository;
 using System.Data;
@@ -7,6 +8,7 @@ namespace PTLRealERP.Pages.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class StepofOperationNewController : ControllerBase
     {
         private readonly IDapperService _dapperService;

@@ -1,4 +1,5 @@
 using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
@@ -8,6 +9,7 @@ using System.Data.SqlClient;
 
 namespace PTLRealERP.Pages.Account
 {
+    [Authorize]
     public class UserLoginfrmModel : PageModel
     {
         private readonly IDapperService _dapperService;
