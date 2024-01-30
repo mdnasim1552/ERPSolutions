@@ -95,7 +95,23 @@
                             </div>
                             <div class="mb-3">
                                 <label for="userrole" class="form-label">User Role</label>
-                                <input type="text" class="form-control" id="userrole">
+                                <select class="form-select select me-2" aria-label="Default select example" id="userrole" style="width: 100%;">
+                                    <!-- <option selected>Open this select menu</option> -->
+                                    @foreach (var _role in Model.Roles)
+                                    {
+                                        if (_role.roleid == "51003")
+                                        {
+                                            <option value="@_role.roleid" selected>@_role.role</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@_role.roleid">@_role.role</option>
+                                        }
+                                        
+                                    }
+                                   
+                                </select>
+
                             </div>
                             <div class="mb-3">
                                 <label for="mailid" class="form-label">Email Id</label>

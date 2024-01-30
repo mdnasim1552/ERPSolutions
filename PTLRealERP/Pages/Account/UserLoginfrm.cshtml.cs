@@ -13,13 +13,18 @@ namespace PTLRealERP.Pages.Account
     public class UserLoginfrmModel : PageModel
     {
         private readonly IDapperService _dapperService;
+        public List<Userrole> Roles =new List<Userrole>();
         public UserLoginfrmModel(IDapperService dapperService)
         {
             _dapperService = dapperService;
         }
-        public void OnGet()
+        public async Task OnGet()
         {
-            
+            string procedureName = "SP_UTILITY_LOGIN_MGT";
+            string Calltype = "GETUSERROLE";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@Calltype", Calltype);
+            Roles =await _dapperService.GetListAsync<Userrole>(procedureName, parameters);
         }
         
       
