@@ -81,7 +81,7 @@ namespace PTLRealERP.Pages.Controller
                 // Here, 'updatedData' contains the data sent from the client in JSON format.
                 // You can iterate through the 'updatedData' list and update your database accordingly.
                 //Update userinf set usrsname=@Desc3,usrname=@Desc4,usrdesig=@Desc5,usractive=@Desc6,usrpass=@Desc7,mailid=@Desc8,userrole=@Desc9 where comcod=@Desc1 and usrid=@Desc2
-                string procedureName = "SP_UTILITY_LOGIN_MGT02";
+                string procedureName = "SP_UTILITY_LOGIN_MGT";
                 string Calltype = "INSERTUSER";
 
                 DynamicParameters parameters = new DynamicParameters();
