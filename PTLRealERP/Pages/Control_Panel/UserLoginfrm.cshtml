@@ -1,0 +1,755 @@
+﻿@page
+@model PTLRealERP.Pages.Account.UserLoginfrmModel
+@{
+}
+
+<div class="card">
+    <div class="card-header">      
+        <div class="row">
+            <div class="col-md-12 table-responsive ">
+                <table class="table table-sm table-hover caption-top display" id="myTable">
+                    <caption>List of users</caption>
+                    <thead class="table-info">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Comcod</th>
+                            <th scope="col">User_id</th>
+                            <th scope="col">Short Name</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">Password Active</th>
+                            <th scope="col">Email_id</th>
+                            <th scope="col">Web mail Password</th>
+                            <th scope="col">Emp_id</th>
+                            <th scope="col" style="width: 100px;">Role Code</th>
+                            <th scope="col" style="width: 100px;">User Role</th>
+                            <th scope="col"></th>
+                            @* <th scope="col"></th> *@
+                        </tr>
+                    </thead>
+                    
+                    
+                </table>
+            </div>
+           
+        </div>
+        <button id="updateButton" class="btn btn-success btn-sm">Update</button>
+        <button id="AddUser" class="btn btn-success btn-sm">Add user</button>
+    </div>
+</div>
+
+
+<div class="modal fade " id="userModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="comcod" class="form-label">Comcod</label>
+                                <input type="text" class="form-control" id="comcod" aria-describedby="emailHelp">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="usrsname" class="form-label">User Short Name</label>
+                                <input type="text" class="form-control" id="usrsname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="usrname" class="form-label">User Name</label>
+                                <input type="text" class="form-control" id="usrname">
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="usrid" class="form-label">User Id</label>
+                                <input type="text" class="form-control" id="usrid">
+                            </div>
+                            <div class="mb-3">
+                                <label for="usrpass" class="form-label">User Password</label>
+                                <input type="password" class="form-control" id="usrpass">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="usrdesig" class="form-label">User Designation</label>
+                                <input type="text" class="form-control" id="usrdesig">
+                            </div>
+                            <div class="mt-5 form-check">
+                                <input type="checkbox" class="form-check-input" id="usractive">
+                                <label for="usractive" class="form-check-label">Active</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="mb-3">
+                                <label for="empid" class="form-label">Employee Id</label>
+                                <input type="text" class="form-control" id="empid">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userrole" class="form-label">User Role</label>
+                                <select class="form-select select me-2" aria-label="Default select example" id="userrole" style="width: 100%;">
+                                    <!-- <option selected>Open this select menu</option> -->
+                                    @foreach (var _role in Model.Roles)
+                                    {
+                                        if (_role.roleid == "51003")
+                                        {
+                                            <option value="@_role.roleid" selected>@_role.role</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@_role.roleid">@_role.role</option>
+                                        }
+                                        
+                                    }
+                                   
+                                </select>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="mailid" class="form-label">Email Id</label>
+                                <input type="text" class="form-control" id="mailid">
+                            </div>
+                        </div>
+                    </div>
+
+                    @* <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div> *@
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                @* <button type="button" class="btn btn-primary">Send message</button> *@
+                <button type="button" class="btn btn-primary" id="submitid">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+                                <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-1.13.6/af-2.6.0/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/b-print-2.4.1/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-1.13.6/af-2.6.0/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/b-print-2.4.1/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.js"></script>
+    <style>
+        /* #yourTableId td:nth-child(3), */
+       /*  #myTable th:nth-child(1) {
+            display: none;
+        } */
+    </style>
+    
+    <script>
+        $(document).ready(function () {
+            $("#AddUser").click(function () {
+                $("#userModal").modal("show");
+            });
+
+            var editedRow = null;
+            //var currentPage = 0; // Track the current page
+            var table = $('#myTable').DataTable({
+                ajax: '/api/Users/myData',
+                scrollX: true,
+                scrollCollapse: true,
+                scrollY: '50vh',
+                // autoWidth: true,
+                paging: true,
+                lengthMenu: [
+                    [10,20, 25, 50, -1],
+                    ['10 rows', '20 rows', '25 rows', '50 rows', 'Show all']
+                ],
+                // "lengthMenu": [10, 20, 30, 40, 50, 100, [-1, "All"]],
+                pageLength: 10, // Default page size
+                columns: [
+                    { data: 'row_num' },
+                    { data: 'comcod' },
+                    { data: 'usrid' },
+                    { data: 'usrsname' },
+                    { data: 'usrname' },
+                    { data: 'usrdesig' },
+                    // { data: 'usractive' },
+                    {
+                        data: 'usractive',
+                        render: function (data, type, row) {
+                            if (type === 'display') {
+                                // Display a checkbox for editing
+                                return '<input type="checkbox" ' + (data ? 'checked' : '') + '>';
+                            }
+                            return data ? 'Yes' : 'No';
+                        }
+                    }, // Display as checkbox by default
+                    { data: 'mailid' },
+                    { data: 'usrpass' },
+                    { data: 'empid' },
+                    { data: 'userrole' },
+                    { data: 'roledesc' },
+                    { data: null, render: function () { return '<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm" style="margin-right: 2px !important;">Edit</button><button class="delete-button btn btn-danger btn-sm">Delete</button></div>'; } } // Add Edit button
+                ],
+                'columnDefs': [
+                    {
+                        'targets': [1,2,3],
+                        'orderable': false, // orderable false if (index === 0 || index === 1 || index === 2 || index === 11) return;
+                    },
+                    {
+                        // 'targets': [0,10],
+                        // 'visible': false
+                    }
+                ],                
+                'order': []
+                
+            });
+            //table.column(0).visible(false);
+            table.column(10).visible(false);
+            // Handle click event for Edit button
+            $('#myTable tbody').on('click', '.edit-button', function () {
+                //closeSideNavbar();
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
+
+                    if (editedRow !== null && editedRow !== row) {
+                        cancelEditRow(editedRow);
+                    }
+                    //currentPage = row.page.info().page;
+
+                    editRow(row);
+                } else {
+                    closeSideNavbar();
+                }
+               
+                
+            });
+
+            // Handle click event for Save button within the edited row
+            $('#myTable tbody').on('click', '.save-button', function () {
+                //closeSideNavbar();
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
+                    saveRow(row);
+                } else {
+                    closeSideNavbar();
+                }
+                
+                
+            });
+            // Handle click event for Cancel button within the edited row
+            $('#myTable tbody').on('click', '.cancel-button', function () {
+                //closeSideNavbar();
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
+                    cancelEditRow(row);
+                } else {
+                    closeSideNavbar();
+                }
+                
+                
+            });
+            // Function to edit a row
+            function editRow(row) {
+                if (editedRow !== null && editedRow !== row) {
+                    saveRow(editedRow);
+                }
+                // Get the page number of the edited row
+               // currentPage = row.page.info().page;
+                //table.column(0).visible(true);
+                table.column(10).visible(true);
+                table.columns.adjust();
+
+                var data = row.data();
+                var columns = table.settings().init().columns;
+
+                row.nodes().to$().find('td').each(function (index) {
+                    if (index === 0 || index === 1 || index === 2 || index === 10) return; // Skip the row number column
+
+                    var column = columns[index];
+                    var field = column.data;
+                    var value = data[field];
+
+                    if (field === 'usractive') {
+                        // For boolean fields, display a checkbox for editing
+                        var checkbox = $('<input type="checkbox">').prop('checked', value);
+                        $(this).html(checkbox);
+                    } else if (field === 'roledesc') {
+                        // Assuming you have a Razor variable named "roles" containing the roles from the server
+                        var select = $('<select class="form-select select me-2" aria-label="Default select example" id="userrole" style="width: 100%;">');
+
+                        // Loop through the roles and append options to the select element
+                        @foreach (var _role in Model.Roles)
+                        {
+                            <text>
+                                    var option = $('<option value="@_role.roleid">@_role.role</option>');
+                                            if ("@_role.roleid" === data.userrole) {
+                                                option.attr('selected', 'selected');
+                                            }
+                                            select.append(option);
+                            </text>
+                        }
+
+                            // Append the completed select element to the table cell
+                        $(this).html(select);
+                    }
+                    else {
+                        // For other fields, display an input field for editing
+                        var input = $('<input type="text" class="form-control">').val(value);
+                        $(this).html(input);
+                    }
+                });
+
+                // Add a Save button to the last column
+                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button style="margin-right: 2px !important;" class="save-button btn btn-primary btn-sm">Save</button> <button class="cancel-button btn btn-primary btn-sm" style="margin-right: 2px !important;">Cancel</button> <button class="delete-button btn btn-danger btn-sm" style="display: none;">Delete</button></div>');
+                editedRow = row;
+                table.columns.adjust().draw(false);
+
+                //table.column(0).visible(false);
+                table.column(10).visible(false);
+                table.columns.adjust();
+                //table.page(currentPage).draw(false);
+            }
+
+            // Function to save the edited row
+            function saveRow(row) {
+                // debugger;
+                //table.column(0).visible(true);
+                table.column(10).visible(true);
+                table.columns.adjust();
+
+                var data = row.data();
+                var columns = table.settings().init().columns;
+
+                row.nodes().to$().find('td').each(function (index) {
+                    if (index === 0 || index === 1 || index === 2 || index === 10) return; // Skip the row number column
+
+                    var column = columns[index];
+                    var field = column.data;
+
+                    if (field === 'usractive') {
+                        // For boolean fields, get the checkbox value
+                        data[field] = $(this).find('input[type="checkbox"]').prop('checked');
+                    } else if (field === 'roledesc') {
+                        data[field] = $(this).find('select option:selected').text();//$(this).find('select').Val();
+                        var selectedRoleId = $(this).find('select').val();
+                        // Set the value of 'userrole' based on the selected 'roledesc'
+                        data['userrole'] = selectedRoleId;
+                    } 
+                    else {
+                        // For other fields, get the input field value
+                        data[field] = $(this).find('input').val();
+                    }
+                });
+
+                // Update the data and redraw the row
+                row.data(data).draw(false);
+                table.columns.adjust().draw(false);
+                // Return to the page where the row was edited
+                //table.page(currentPage).draw(false);
+                editedRow = null;
+
+                //table.column(0).visible(false);
+                table.column(10).visible(false);
+                table.columns.adjust();
+            }
+            // Function to cancel editing
+            function cancelEditRow(row) {
+                //table.column(0).visible(true);
+                table.column(10).visible(true);
+                table.columns.adjust();
+
+                var data = row.data();
+                var columns = table.settings().init().columns;
+
+                row.nodes().to$().find('td').each(function (index) {
+                    if (index === 0 || index === 1 || index === 2 || index === 10) return;
+
+                    var column = columns[index];
+                    var field = column.data;
+
+                    if (field === 'usractive') {
+                        var checkbox = $('<input type="checkbox">').prop('checked', data[field]);
+                        $(this).html(checkbox);
+                    } else {
+                        var text = data[field];
+                        $(this).html(text);
+                    }
+                });
+
+                // Add the Edit button to the last column
+                row.nodes().to$().find('td:last').html('<div class="d-flex justify-content-start"><button class="edit-button btn btn-primary btn-sm" style="margin-right: 2px !important;">Edit</button> <button class="delete-button btn btn-danger btn-sm">Delete</button></div>');
+                editedRow = null;
+                table.columns.adjust().draw(false);
+
+                //table.column(0).visible(false);
+                table.column(10).visible(false);
+                table.columns.adjust();
+
+                //table.page(currentPage).draw(false);
+            }
+            function closeSideNavbar() {
+                let sidebar = $(".sidebar");
+                if (!sidebar.hasClass("close")) {
+                    // Close the sidebar first
+                    sidebar.addClass("close");
+                }
+            }
+            // // Populate the table with data from your API
+            // $.ajax({
+            //     type: "GET",
+            //     url: '/api/Users/myData', // Update with the correct route
+            //     dataType: "json",
+            //     success: function (data) {
+            //         table.rows.add(data.data).draw();
+            //     },
+            //     error: function () {
+            //         console.log("Error fetching data.");
+            //     }
+            // });
+            $('#myTable tbody').on('change', 'input[type="checkbox"]', function () {
+
+                var cell = table.cell($(this).closest('td')); // Get the cell associated with the checkbox
+                var data = cell.data(); // Get the current cell data
+                data = $(this).prop('checked'); // Update the cell data with the checkbox state
+                cell.data(data).draw(false); // Redraw just the cell
+                // This event handler will be triggered when checkboxes are checked or unchecked
+
+                // Get the row associated with the checkbox
+                // var row = table.row($(this).parents('tr'));
+                // var data = row.data();              
+                // data['usractive'] = $(this).prop('checked');
+                // row.data(data).draw(false);
+            });
+            $('#updateButton').on('click', function () {
+                var allData = table.rows().data().toArray();
+               
+                $.ajax({
+                    url: '/api/Users/updateData', // Your server-side update endpoint
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(allData),
+                    success: function (response) {
+                        alert('Data updated successfully');
+                    },
+                    error: function (error) {
+                        console.error('Error updating data:', error);
+                    }
+                });
+            });
+
+            $('#myTable tbody').on('click', '.delete-button', function () {
+
+                if ($(".sidebar").hasClass("close")) {
+                    var row = table.row($(this).parents('tr'));
+                    $.ajax({
+                        url: '/api/Users/deleteData', // Your server-side delete endpoint
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(row.data()), // Send the entire row data
+                        success: function (response) {
+                            row.remove().draw(false);
+                            alert('Data deleted successfully');
+                        },
+                        error: function (error) {
+                            console.error('Error deleting data:', error);
+                        }
+                    });
+                } else {
+                    closeSideNavbar();
+                }
+
+                
+            });
+
+
+            $("#submitid").click(function () {
+                //table.column(0).visible(true);
+                table.column(10).visible(true);
+                table.columns.adjust();
+                var allData = table.rows().data().toArray();
+                var maxRowNum = Math.max(...allData.map(data => parseInt(data.row_num) || 0))+1;
+                var user = {
+                    row_num: maxRowNum,
+                    comcod: $("#comcod").val(),
+                    usrid: $("#usrid").val(),
+                    usrsname: $("#usrsname").val(),
+                    usrname: $("#usrname").val(),
+                    usrdesig: $("#usrdesig").val(),
+                    usractive: $("#usractive").prop("checked"),
+                    usrpass: $("#mailid").val(),
+                    mailid: $("#usrsname").val(),
+                    empid: $("#empid").val(),
+                    userrole: $("#userrole").val(),
+                    roledesc:""
+                    // comcod: "1101",
+                    // usrid: "1101005",
+                    // usrsname: "demo",
+                    // usrname: "demo7788",
+                    // usrdesig: "Prg",
+                    // usractive: true,
+                    // usrpass: "5A97-80-D6-2E-A2",
+                    // mailid: "",
+                    // empid: "",
+                    // userrole: 0
+                };
+                $.ajax({
+                    url: "/api/Users/insertData",
+                    method: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(user),
+                    success: function (result) {
+                        table.row.add(user).draw(false);
+                        alert('Data Inserted successfully');
+                    },
+                    error: function (error) {
+                        alert('Error adding employee.');
+                    }
+                });
+                //table.column(0).visible(false);
+                table.column(10).visible(false);
+                table.columns.adjust();
+            });
+
+           
+
+        });
+
+       
+    </script>
+
+}
+
+@*
+            $(document).ready(function () {
+            var table = $('#myTable').DataTable({
+                ajax: '/api/Users/myData',  // URL to fetch JSON data
+                scrollX: true,
+                scrollCollapse: true,
+                scrollY: '50vh',
+                columnDefs: [
+                    {
+                        targets: 0,
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            // Render the row number (index + 1)
+                            return meta.row + 1;
+                        }
+                    },
+                    { targets: 1, data: 'comcod' },
+                    { targets: 2, data: 'usrid' },
+                    { targets: 3, data: 'usrsname' },
+                    { targets: 4, data: 'usrname' },
+                    { targets: 5, data: 'usrdesig' },
+                    { targets: 6, data: 'usractive' },
+                    { targets: 7, data: 'usrpass' },
+                    { targets: 8, data: 'mailid' },
+                    { targets: 9, data: 'empid' },
+                    { targets: 10, data: 'userrole' },
+                    {
+                        targets: -2,
+                        //edit button creation
+                        render: function (data, type, row) {
+                            return createButton('edit', row.id);
+                        }
+                    },
+                    {
+                        targets: -1,
+                        //delete button creation
+                        render: function (data, type, row) {
+                            return createButton('delete', row.id);
+                        }
+                    }
+                ]
+
+            });
+            function createButton(buttonType, rowID) {
+                var buttonText = buttonType == "edit" ? "Edit" : "Delete";
+                //var buttonStyle = buttonType == "edit" ? "btn btn-outline-primary" : "btn btn-outline-danger";
+                //return '<button class="' + buttonType + ' ' +buttonStyle+'" type="button">' + buttonText + '</button>';
+
+                return '<button class="' + buttonType +'" type="button">' + buttonText + '</button>';
+            }
+
+
+            $('#myTable').on('click', 'tbody td .edit', function (e) {
+                fnResetControls();
+                var dataTable = $('#myTable').DataTable();
+                var clickedRow = $($(this).closest('td')).closest('tr');
+                $(clickedRow).find('td').each(function () {
+                    // do your cool stuff
+                    if ($(this).hasClass('editable')) {
+                        if ($(this).hasClass('text')) {
+                            var html = fnCreateTextBox($(this).html(), 'name');
+                            $(this).html($(html))
+                        }
+                    }
+                });
+
+
+                $('#myTable tbody tr td .update').removeClass('update').addClass('edit').html('Edit');
+                $('#myTable tbody tr td .cancel').removeClass('cancel').addClass('delete').html('Delete');
+                $(clickedRow).find('td .edit').removeClass('edit').addClass('update').html('Update');
+                $(clickedRow).find('td .delete').removeClass('delete').addClass('cancel').html('Cancel');
+
+            });
+
+            function fnCreateTextBox(value, fieldprop) {
+                return '<input data-field="' + fieldprop + '" type="text" value="' + value + '" ></input>';
+            }
+
+
+
+
+            $('#myTable').on('click', 'tbody td .cancel', function (e) {
+                fnResetControls();
+                $('#myTable tbody tr td .update').removeClass('update').addClass('edit').html('Edit');
+                $('#myTable tbody tr td .cancel').removeClass('cancel').addClass('delete').html('Delete');
+            });
+
+
+            function fnResetControls() {
+                var openedTextBox = $('#myTable').find('input');
+                $.each(openedTextBox, function (k, $cell) {
+                    $(openedTextBox[k]).closest('td').html($cell.value);
+                })
+            }
+
+
+
+            $('#myTable').on('click', 'tbody td .update', function (e) {
+
+                var openedTextBox = $('#myTable').find('input');
+                $.each(openedTextBox, function (k, $cell) {
+                    fnUpdateDataTableValue($cell, $cell.value);
+                    $(openedTextBox[k]).closest('td').html($cell.value);
+                })
+
+                $('#myTable tbody tr td .update').removeClass('update').addClass('edit').html('Edit');
+                $('#myTable tbody tr td .cancel').removeClass('cancel').addClass('delete').html('Delete');
+            });
+
+            function fnUpdateDataTableValue($inputCell, value) {
+                var dataTable = $('#myTable').DataTable();
+                var rowIndex = dataTable.row($($inputCell).closest('tr')).index();
+                var fieldName = $($inputCell).attr('data-field');
+                dataTable.rows().data()[rowIndex][fieldName] = value;
+            }
+
+
+        });
+*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<script>
+    $(document).ready(function () {
+        var table = $('#myTable').DataTable({
+            ajax: '/api/Users/myData',  // URL to fetch JSON data
+            scrollX: true,
+            scrollCollapse: true,
+            scrollY: '50vh',
+            columns: [
+                { data: null }, // Placeholder for the row number column
+                { data: 'comcod' },
+                { data: 'usrid' },
+                { data: 'usrsname' },
+                { data: 'usrname' },
+                { data: 'usrdesig' },
+                { data: 'usractive' },
+                { data: 'usrpass' },
+                { data: 'mailid' },
+                { data: 'empid' },
+                { data: 'userrole' }
+            ],
+            columnDefs: [
+                {
+                    // Target the first column (row number column) for custom rendering
+                    targets: 0,
+                    render: function (data, type, row) {
+                        // Render the row number
+                        return table.row(row).index() + 1;
+                    }
+                }
+            ]
+        });
+    });
+</script>*@
+
+
+
+
+
+@*
+
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                scrollX: true,
+                scrollCollapse: true,
+                scrollY: '50vh'
+            });
+            populateTable();
+
+        });
+
+        function populateTable() {
+            $.ajax({
+                type: "GET",
+                url: '/api/Users/myData', // Update with the correct route
+                dataType: "json",
+                success: function (data) {
+                    let i=1;
+                    var tableBody = $("#myTable tbody");
+                    tableBody.empty(); // Clear existing rows
+                    $.each(data, function (index, item) {
+                        tableBody.append(
+                            '<tr>' +
+
+                            '<td scope="row">' + i + '</td>' +
+                            '<td>' + item.comcod + '</td>' +
+                            '<td>' + item.usrid + '</td>' +
+                            '<td>' + item.usrsname + '</td>' +
+                            '<td>' + item.usrname + '</td>' +
+                            '<td>' + item.usrdesig + '</td>' +
+                            '<td>' + item.usractive + '</td>' +
+                            '<td>' + item.usrpass + '</td>' +
+                            '<td>' + item.mailid + '</td>' +
+                            '<td>' + item.empid + '</td>' +
+                            '<td>' + item.userrole + '</td>' +
+                            '</tr>'
+                        );
+                        i++;
+                    });
+                    //$('#myTable').DataTable().draw();
+                },
+                error: function () {
+                    console.log("Error fetching data.");
+                }
+            });
+        }
+*@
