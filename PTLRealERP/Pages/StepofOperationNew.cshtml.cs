@@ -15,6 +15,9 @@ namespace PTLRealERP.Pages
             if (Type == "81")
             {
                 menuItems =await ConstantInfo.MenuAllHR();
+            }else if(Type == "35")
+            {
+                menuItems=await ConstantInfo.MenuAllControl();
             }
             
         }
