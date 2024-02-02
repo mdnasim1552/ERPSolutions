@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEntity.Account
 {
-    public class Userrole
+    public class UserRole
     {
         public string roleid { get; set; }
         public string role { get; set; }

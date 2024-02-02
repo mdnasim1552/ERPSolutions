@@ -13,7 +13,7 @@ namespace PTLRealERP.Pages.Account
     public class UserLoginfrmModel : PageModel
     {
         private readonly IDapperService _dapperService;
-        public List<Userrole> Roles =new List<Userrole>();
+        public List<UserRole> Roles =new List<UserRole>();
         public UserLoginfrmModel(IDapperService dapperService)
         {
             _dapperService = dapperService;
@@ -24,7 +24,7 @@ namespace PTLRealERP.Pages.Account
             string Calltype = "GETUSERROLE";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@Calltype", Calltype);
-            Roles =await _dapperService.GetListAsync<Userrole>(procedureName, parameters);
+            Roles =await _dapperService.GetListAsync<UserRole>(procedureName, parameters);
         }
         
       

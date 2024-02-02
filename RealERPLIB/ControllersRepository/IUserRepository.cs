@@ -12,6 +12,6 @@ namespace RealERPLIB.ControllersRepository
         Task<List<Userinf>> GetUserList();
         Task<bool> InsertUserData(Userinf user);
         Task<bool> UpdateUserData(List<Userinf> updatedData);
-        Task<bool> DeleteUserData(Userinf user);
+        Task<bool> DeleteUserData(string comcod, string usrid);
     }
 }

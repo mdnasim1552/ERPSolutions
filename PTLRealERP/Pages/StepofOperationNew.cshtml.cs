@@ -12,10 +12,10 @@ namespace PTLRealERP.Pages
         public async Task OnGet()
         {
             Type = HttpContext.Request.Query["Type"];
-            if (Type == "81")
+            if (Type == "14")
             {
                 menuItems =await ConstantInfo.MenuAllHR();
-            }else if(Type == "35")
+            }else if(Type == "13")
             {
                 menuItems=await ConstantInfo.MenuAllControl();
             }
