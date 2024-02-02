@@ -155,8 +155,9 @@ namespace PTLRealERP.Pages.Accounts
                     new Claim(ClaimTypes.Email,LoginUsers.mailid),
                     new Claim("Image", "/Images/Comp_Logo/3101.jpg"), // Set the actual path to the image
                     new Claim("Designation", LoginUsers.usrdesig), // Set the actual designation
-                    new Claim("Department","HR"),
-                    new Claim("Admin","true")
+                    new Claim(ClaimTypes.Role,LoginUsers.userrole)
+                    //new Claim("Department","HR"),
+                    //new Claim("Admin","true")
                 };
                 ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);//we can use CookieAuthenticationDefaults.AuthenticationScheme (constant) instead of "MyCookieAuth"
                 ClaimsPrincipal claimprincipal = new ClaimsPrincipal(identity);

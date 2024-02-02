@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PTLRealERP.Pages.Accounts;
 using RealEntity.Account;
 using RealERPLIB.ControllersRepository;
 using RealERPLIB.DapperRepository;
 using RealERPLIB.Extensions;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Common;
 using static RealERPLIB.DapperRepository.DapperService;
@@ -78,12 +80,16 @@ namespace PTLRealERP.Pages.Controller
             }
         }
 
-        [HttpPost("deleteData")]
-        public async Task<IActionResult> DeleteUserData([FromBody] Userinf user)
+        [HttpPost]
+        [Route("/api/Users/deleteData")]
+        public async Task<IActionResult> DeleteUserData([FromBody] DeleteRequestModel request)
         {
             try
             {
-                bool result= await _userRepository.DeleteUserData(user);  
+
+                string comcod = request.Comcod;
+                string usrid = request.Usrid;
+                bool result= await _userRepository.DeleteUserData(comcod,usrid);  
                 if (!result)
                 {
                     return BadRequest(new { Status = "Error", Message = "An error occurred while updating data." });
@@ -95,6 +101,14 @@ namespace PTLRealERP.Pages.Controller
                 return BadRequest("An error occurred while updating data.");
             }
             return Ok("Data deleted successfully");
+        }
+        public class DeleteRequestModel
+        {
+            [Required(ErrorMessage = "comcod is required")]
+            public string Comcod { get; set; }
+
+            [Required(ErrorMessage = "usrid is required")]
+            public string Usrid { get; set; }
         }
 
     }

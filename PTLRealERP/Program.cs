@@ -29,20 +29,8 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout duration
 });
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
-    {
-        //options.Cookie.Name = "MyCookieAuth";
-        options.LoginPath = "/Account/Login";
-        //options.LogoutPath = "/Account/Logout";
-        options.AccessDeniedPath = "/Account/AccessDenied";
-        options.ExpireTimeSpan=TimeSpan.FromMinutes(30);
-    });
-builder.Services.AddAuthorization(option =>
-{
-    option.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
-    option.AddPolicy("MustBelongToHRDepartment", policy=>policy.RequireClaim("Department","HR"));
-});
+builder.Services.AddAuthenticationAndAuthorization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

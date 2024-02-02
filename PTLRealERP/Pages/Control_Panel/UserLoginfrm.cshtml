@@ -456,11 +456,32 @@
 
                 if ($(".sidebar").hasClass("close")) {
                     var row = table.row($(this).parents('tr'));
+                    var comcod = row.data().comcod;
+                    var usrid = row.data().usrid;
+                    var requestData = {
+                        comcod: comcod,
+                        usrid: usrid
+                    };
+
+                    //var user = {
+                        //row_num: row.index(),                  // Row index in the DataTable
+                        //comcod: row.data().comcod,             // Replace 'comcod' with the actual property name
+                        //usrid: row.data().usrid               // Replace 'usrid' with the actual property name
+                        //usrsname: row.data().usrsname,         // Replace 'usrsname' with the actual property name
+                        //usrname: row.data().usrname,           // Replace 'usrname' with the actual property name
+                        //usrdesig: row.data().usrdesig,         // Replace 'usrdesig' with the actual property name
+                        //usractive: row.data().usractive,       // Replace 'usractive' with the actual property name
+                        //usrpass: row.data().usrpass,           // Replace 'usrpass' with the actual property name
+                        //mailid: row.data().mailid,             // Replace 'mailid' with the actual property name
+                        //empid: row.data().empid,               // Replace 'empid' with the actual property name
+                        //userrole: row.data().userrole,         // Replace 'userrole' with the actual property name
+                        //roledesc: row.data().roledesc || ""   // Replace 'roledesc' with the actual property name
+                    //};
                     $.ajax({
                         url: '/api/Users/deleteData', // Your server-side delete endpoint
                         method: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify(row.data()), // Send the entire row data
+                        contentType: "application/json",
+                        data: JSON.stringify(requestData), // Send the entire row data
                         success: function (response) {
                             row.remove().draw(false);
                             alert('Data deleted successfully');

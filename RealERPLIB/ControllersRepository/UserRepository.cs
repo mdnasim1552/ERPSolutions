@@ -82,14 +82,14 @@ namespace RealERPLIB.ControllersRepository
             return true;
         }
 
-        public async Task<bool> DeleteUserData(Userinf user)
+        public async Task<bool> DeleteUserData(string comcod, string usrid)
         {
             string procedureName = "SP_UTILITY_LOGIN_MGT";
             string Calltype = "DELETEUSER";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@Calltype", Calltype);
-            parameters.Add("@Comp1", user.comcod);
-            parameters.Add("@Desc8", user.usrid);
+            parameters.Add("@Comp1", comcod);
+            parameters.Add("@Desc8", usrid);
 
             bool result = await _dapperService.ExecuteTransactionalOperationAsync(procedureName, parameters);
             if (!result)
