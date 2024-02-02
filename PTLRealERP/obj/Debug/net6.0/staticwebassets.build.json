@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D1evmvgnrS/mdCGmJ4jNbvoHwotCWja9F4/xAqjKMEk=",
+  "Hash": "tQj7JEgKBw2ZBgFh2KQhY3U5BtY9bKoezvrr5WgLkPA=",
   "Source": "PTLRealERP",
   "BasePath": "_content/PTLRealERP",
   "Mode": "Default",
@@ -395,6 +395,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Comp_Logo\\default.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\Images\\Login_page_background.jpg",
+      "SourceId": "PTLRealERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\",
+      "BasePath": "_content/PTLRealERP",
+      "RelativePath": "Images/Login_page_background.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Login_page_background.jpg"
     },
     {
       "Identity": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\js\\site.js",
