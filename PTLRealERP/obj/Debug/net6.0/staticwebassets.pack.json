@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\Images\\Comp_Logo\\default.jpg"
     },
     {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\Images\\Login_page_background.jpg",
+      "PackagePath": "staticwebassets\\Images\\Login_page_background.jpg"
+    },
+    {
       "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

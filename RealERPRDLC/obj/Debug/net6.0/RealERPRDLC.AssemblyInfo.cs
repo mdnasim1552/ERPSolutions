@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RealERPRDLC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d46d0cd0075ef5f15ff36ba337715d04d7e5690")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("RealERPRDLC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RealERPRDLC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

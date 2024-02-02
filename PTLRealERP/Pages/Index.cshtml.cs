@@ -9,7 +9,7 @@ using System.Data;
 namespace PTLRealERP.Pages
 {
     //[Authorize(Policy = "MustBelongToHRDepartment")]
-    [Authorize(Policy = "AdminPolicy")]
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace PTLRealERP.Pages.Account
 {
-    [Authorize]
+    [Authorize(Policy = "AdminPolicy")]
     public class UserLoginfrmModel : PageModel
     {
         private readonly IDapperService _dapperService;
