@@ -546,11 +546,31 @@
                 table.columns.adjust();
             });
 
+            $("#printButton").on("click", function () {
+                $.ajax({
+                    url: "/api/Print/RptRDLCPDF",
+                    method: "GET",
+                    dataType: "json",
+                    //responseType: 'arraybuffer', // Set the responseType to 'arraybuffer' to handle binary data
+                    success: function (result) {
+                        //var blob = new Blob([result], { type: "application/pdf" });
+                        var fileUrl = result.fileUrl;
+                        // Create a data URL for the Blob
+                        //var url = URL.createObjectURL(blob);
+                        window.open(fileUrl, "_blank");
+                        // Open the PDF in a new window
+                        //window.open(url, "_blank");
+                    },
+                    error: function (error) {
+                        alert('Error adding employee.');
+                    }
+                });
+            });
            
 
         });
 
-       
+        
     </script>
 
 }

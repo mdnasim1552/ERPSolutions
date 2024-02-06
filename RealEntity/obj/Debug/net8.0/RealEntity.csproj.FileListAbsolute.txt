@@ -1,0 +1,12 @@
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\bin\Debug\net8.0\RealEntity.deps.json
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\bin\Debug\net8.0\RealEntity.dll
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\bin\Debug\net8.0\RealEntity.pdb
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.AssemblyInfoInputs.cache
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.AssemblyInfo.cs
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.csproj.CoreCompileInputs.cache
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.sourcelink.json
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.dll
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\refint\RealEntity.dll
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.pdb
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\ref\RealEntity.dll
