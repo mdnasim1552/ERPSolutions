@@ -27,7 +27,7 @@ namespace PTLRealERP.Pages.Account
             Roles =await _dapperService.GetListAsync<UserRole>(procedureName, parameters);
         }
         
-      
+
 
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net5.0\RealERPRDLC.csproj.AssemblyReference.cache
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net5.0\RealERPRDLC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net5.0\RealERPRDLC.AssemblyInfoInputs.cache
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net5.0\RealERPRDLC.AssemblyInfo.cs
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net5.0\RealERPRDLC.csproj.CoreCompileInputs.cache
+C:\Users\mdnas\OneDrive\Desktop\Razor\PTLRealERP\RealERPRDLC\obj\Debug\net5.0\RealERPRDLC.sourcelink.json

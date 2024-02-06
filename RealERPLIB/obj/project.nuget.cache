@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Qyd3/Vk/sEkdoJZj+y6QZvAvXJNOjM0rKIGWgY75LlgLHcEDFZhq9amMDYF6sPyRcluhrjbE6rjv++wYkP30dQ==",
+  "dgSpecHash": "0C0gBG2DXZ9z3hot5wm5Zo+lL01kAWE6oXShF1qgrcjJQfhp+shdNIRjrK3pzlg0sZSm+9JDpFVDIkmykoJ2yw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,6 @@
     "C:\\Users\\mdnas\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
