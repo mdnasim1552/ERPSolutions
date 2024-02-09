@@ -14,6 +14,10 @@ namespace RealERPLIB.DapperRepository
         {
             _context = context;
         }
+        public string GetDatabaseName()
+        {
+            return _context.GetDatabaseName();
+        }
         public List<User> GetAll()
         {
             var sql = "select * from compinf";
@@ -286,7 +290,22 @@ namespace RealERPLIB.DapperRepository
                 throw; // Re-throw the exception for higher-level handling
             }
         }
-
+        public async Task<T> GetSingleOrDefaultAsync<T>(string procedureName, DynamicParameters parameters)
+        {
+            try
+            {
+                using (var connection = _context.CreateConnection())
+                {
+                    var result = await connection.QuerySingleOrDefaultAsync<T>(procedureName, parameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetFirstOrDefaultAsync: {ex.Message}");
+                throw; // Re-throw the exception for higher-level handling
+            }
+        }
         public (List<User> users, List<Module> mod) GetUserAndCustomerLists(string procedureName, DynamicParameters parameters)
         {
             using (var connection = _context.CreateConnection())

@@ -3,6 +3,8 @@ using RealEntity.Account;
 using RealERPLIB.ConfigurationRepository;
 using RealERPLIB.ControllersRepository;
 using RealERPLIB.DapperRepository;
+using RealERPLIB.LoginRepository;
+
 
 namespace PTLRealERP.Configuration
 {
@@ -12,6 +14,7 @@ namespace PTLRealERP.Configuration
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
             return services;
         }
         public static IServiceCollection AddAuthenticationAndAuthorization(this IServiceCollection services)

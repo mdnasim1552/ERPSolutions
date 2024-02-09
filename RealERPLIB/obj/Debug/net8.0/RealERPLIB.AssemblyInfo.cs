@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RealERPLIB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a76bfd4e86e28fe8d8223f770d5e4d81675a4e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c59fb0975a6c590569eff7b26d7e77cd3acb089")]
 [assembly: System.Reflection.AssemblyProductAttribute("RealERPLIB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RealERPLIB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

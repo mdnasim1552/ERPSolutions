@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEntity.Account
 {
+    [Serializable]
     public class Userinf
     {
         public Userinf()

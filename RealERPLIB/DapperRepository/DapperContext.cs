@@ -18,6 +18,14 @@ namespace RealERPLIB.DapperRepository
             _configuration = configuration;
             _connectionstring = _configuration.GetConnectionString("DefaultConnection");
         }
+        public string GetDatabaseName()
+        {
+            using (var connection = new SqlConnection(_connectionstring))
+            {
+                connection.Open();
+                return connection.Database;
+            }
+        }
         public IDbConnection CreateConnection() => new SqlConnection(_connectionstring);
     }
 }

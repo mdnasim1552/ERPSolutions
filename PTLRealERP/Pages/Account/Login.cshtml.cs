@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using RealEntity.Account;
 using RealERPLIB.DapperRepository;
 using RealERPLIB.Extensions;
+using RealERPLIB.LoginRepository;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
@@ -29,10 +30,11 @@ namespace PTLRealERP.Pages.Accounts
         public List<List<dynamic>> result { get; set; } = new List<List<dynamic>>();
 
         private readonly IDapperService _dapperService;
-
-        public LoginModel(IDapperService dapperService)
+        private readonly ILoginRepository _loginRepository;
+        public LoginModel(IDapperService dapperService,ILoginRepository loginRepository)
         {
             _dapperService = dapperService;
+            _loginRepository = loginRepository;
         }
 
         //private void GetModulename()
@@ -61,12 +63,7 @@ namespace PTLRealERP.Pages.Accounts
        
         private async Task GetCompanyInfoAsync()
         {
-            string procedureName = "SP_UTILITY_LOGIN_MGT";
-            string Calltype = "COMPANYINFO";
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@Calltype", Calltype);
-            //CompanyList = _dapperService.GetList<Company>(procedureName, parameters);
-            CompanyList = await _dapperService.GetListAsync<Company>(procedureName, parameters);
+            CompanyList = await _loginRepository.GetCompanyList();       
             //result = _dapperService.GetDataList(procedureName, parameters);
             //List<Company> companyList = result[0].ConvertToCustomList<Company>();
         }
@@ -136,25 +133,27 @@ namespace PTLRealERP.Pages.Accounts
         }
         public async Task<IActionResult> OnPostAsync() {
             if (!ModelState.IsValid) return Page();
-            string procedureName = "SP_UTILITY_LOGIN_MGT";
-            string Calltype = "LOGINUSER";
+            //string procedureName = "SP_UTILITY_LOGIN_MGT";
+            //string Calltype = "LOGINUSER";
             string username = Credential.Username;
             string password = ASTUtility.EncodePassword(Credential.Password);//ASTUtility.EncodePassword(this.txtuserpass.Text.Trim());
             string comcod = SelectedCompanyId;
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@Calltype", Calltype);
-            parameters.Add("@Comp1", comcod);
-            parameters.Add("@Desc1", username);
-            parameters.Add("@Desc2", password);
-            var LoginUsers = await _dapperService.GetFirstOrDefaultAsync<LoginUsers>(procedureName, parameters);
+            //DynamicParameters parameters = new DynamicParameters();
+            //parameters.Add("@Calltype", Calltype);
+            //parameters.Add("@Comp1", comcod);
+            //parameters.Add("@Desc1", username);
+            //parameters.Add("@Desc2", password);
+            //var LoginUsers = await _dapperService.GetFirstOrDefaultAsync<LoginUsers>(procedureName, parameters);
+            var LoginUsers=await _loginRepository.GetLoginUsers(comcod, username, password); 
             if (LoginUsers != null)
             {
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name,LoginUsers.usrname),
                     new Claim(ClaimTypes.Email,LoginUsers.mailid),
-                    new Claim("Image", "/Images/Comp_Logo/3101.jpg"), // Set the actual path to the image
+                    new Claim("Image", $"/Images/Comp_Logo/{comcod}.jpg"), // Set the actual path to the image$"{comcod}.jpg"
                     new Claim("Designation", LoginUsers.usrdesig), // Set the actual designation
+                    new Claim("comcod", comcod),
                     new Claim(ClaimTypes.Role,LoginUsers.userrole)
                     //new Claim("Department","HR"),
                     //new Claim("Admin","true")

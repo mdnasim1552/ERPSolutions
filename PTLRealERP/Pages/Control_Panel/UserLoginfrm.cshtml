@@ -444,10 +444,12 @@
                     contentType: 'application/json',
                     data: JSON.stringify(allData),
                     success: function (response) {
-                        alert('Data updated successfully');
+                        showContent('Data updated successfully');
+                        //alert('Data updated successfully');
                     },
                     error: function (error) {
-                        console.error('Error updating data:', error);
+                        showContentFail('Error updating data');
+                        //console.error('Error updating data:', error);
                     }
                 });
             });
@@ -484,10 +486,12 @@
                         data: JSON.stringify(requestData), // Send the entire row data
                         success: function (response) {
                             row.remove().draw(false);
-                            alert('Data deleted successfully');
+                            showContent('Data deleted successfully');
+                            //alert('Data deleted successfully');
                         },
                         error: function (error) {
-                            console.error('Error deleting data:', error);
+                            showContentFail('Error deleting data' + error.responseText);
+                            //console.error('Error deleting data:', error);
                         }
                     });
                 } else {
@@ -535,10 +539,12 @@
                     data: JSON.stringify(user),
                     success: function (result) {
                         table.row.add(user).draw(false);
-                        alert('Data Inserted successfully');
+                        showContent('Data Inserted successfully');
+                        //alert('Data Inserted successfully');
                     },
                     error: function (error) {
-                        alert('Error adding employee.');
+                        showContentFail('Error adding data' + error.responseText);
+                        //alert('Error adding employee.');
                     }
                 });
                 //table.column(0).visible(false);
@@ -562,7 +568,7 @@
                         //window.open(url, "_blank");
                     },
                     error: function (error) {
-                        alert('Error adding employee.');
+                        alert(error.responseText)
                     }
                 });
             });
