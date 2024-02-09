@@ -12,6 +12,7 @@ namespace RealERPLIB.DapperRepository
 {
     public interface IDapperService
     {
+        string GetDatabaseName();
         List<User> GetAll();
         Task<List<User>> GetAllAsync();
         List<DataTable> GetDataTableList(string procedureName, DynamicParameters parameters);
@@ -22,6 +23,7 @@ namespace RealERPLIB.DapperRepository
         List<T> GetList<T>(string procedureName, DynamicParameters parameters);
         Task<List<T>> GetListAsync<T>(string procedureName, DynamicParameters parameters);
         Task<T> GetFirstOrDefaultAsync<T>(string procedureName, DynamicParameters parameters);
+        Task<T> GetSingleOrDefaultAsync<T>(string procedureName, DynamicParameters parameters);
         DataSet GetDataSets(string procedureName, DynamicParameters parameters);
         Task<DataSet> GetDataSetsAsync(string procedureName, DynamicParameters parameters);
         Task<bool> ExecuteTransactionalOperationAsync(string SQLprocName, DynamicParameters parameters);

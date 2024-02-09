@@ -1,29 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "MhfH034g2VyV6seq+5r/w8EepvWFkUj5l5CfvP7zTzoPeCpwRw2cfKhBj1ZEiD1I3rWHSkJKfQQa+i0pyVDenQ==",
+  "dgSpecHash": "k/t/I40eoKH4ORZhHm1Xr92ODEu+j2n6yOpnaHKaH8iY4xTWTJvNF9aMxBLAiL04fExAodlhc6UiunKK3IRz7A==",
   "success": true,
   "projectFilePath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.2\\microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.common\\4.0.0\\microsoft.codeanalysis.common.4.0.0.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.visualbasic\\4.0.0\\microsoft.codeanalysis.visualbasic.4.0.0.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.common\\4.8.0-3.final\\microsoft.codeanalysis.common.4.8.0-3.final.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.visualbasic\\4.8.0-3.final\\microsoft.codeanalysis.visualbasic.4.8.0-3.final.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.4\\microsoft.netcore.platforms.3.1.4.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\reportviewercore.netcore\\15.1.19\\reportviewercore.netcore.15.1.19.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.codedom\\4.7.0\\system.codedom.4.7.0.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.drawing.common\\4.7.2\\system.drawing.common.4.7.2.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\system.reflection.metadata\\7.0.0\\system.reflection.metadata.7.0.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.resources.extensions\\4.7.1\\system.resources.extensions.4.7.1.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+    "C:\\Users\\mdnas\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

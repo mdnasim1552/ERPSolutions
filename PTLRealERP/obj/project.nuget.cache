@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q7iiLPwwd81VBJC/zKEfgIxOoTwO6ATHpd8gb3sI/wO5B11iMT3QqV0vkrt6P0V2NrPBjccTqTY4QU72tQYzpg==",
+  "dgSpecHash": "tw6s3z7M9DQnZM0qMP+IwYbi63NPS6Q0wTGSqrP4ChWaa99JNIWhrJU6ZYUEuvuCY3wYRtJVzW0F+Zy5Jue/Zg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\mdnas\\.nuget\\packages\\hangfire.core\\1.8.9\\hangfire.core.1.8.9.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\hangfire.netcore\\1.8.9\\hangfire.netcore.1.8.9.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\hangfire.sqlserver\\1.8.9\\hangfire.sqlserver.1.8.9.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.common\\4.8.0-3.final\\microsoft.codeanalysis.common.4.8.0-3.final.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\microsoft.codeanalysis.visualbasic\\4.8.0-3.final\\microsoft.codeanalysis.visualbasic.4.8.0-3.final.nupkg.sha512",
@@ -38,7 +39,8 @@
     "C:\\Users\\mdnas\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\mdnas\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
-    "C:\\Users\\mdnas\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\mdnas\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\mdnas\\.nuget\\packages\\toastr\\2.1.1\\toastr.2.1.1.nupkg.sha512"
   ],
   "logs": []
 }

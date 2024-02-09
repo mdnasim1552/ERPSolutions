@@ -14,7 +14,8 @@
           "RealERPRDLC": "1.0.0",
           "RealEntity": "1.0.0",
           "ReportViewerCore.NETCore": "15.1.19",
-          "System.Data.SqlClient": "4.8.6"
+          "System.Data.SqlClient": "4.8.6",
+          "toastr": "2.1.1"
         },
         "runtime": {
           "PTLRealERP.dll": {}
@@ -126,6 +127,7 @@
           }
         }
       },
+      "jQuery/1.6.3": {},
       "Microsoft.CodeAnalysis.Analyzers/3.3.4": {},
       "Microsoft.CodeAnalysis.Common/4.8.0-3.final": {
         "dependencies": {
@@ -461,6 +463,11 @@
           }
         }
       },
+      "toastr/2.1.1": {
+        "dependencies": {
+          "jQuery": "1.6.3"
+        }
+      },
       "RealEntity/1.0.0": {
         "runtime": {
           "RealEntity.dll": {}
@@ -480,6 +487,7 @@
       },
       "RealERPRDLC/1.0.0": {
         "dependencies": {
+          "RealEntity": "1.0.0",
           "ReportViewerCore.NETCore": "15.1.19"
         },
         "runtime": {
@@ -535,6 +543,13 @@
       "sha512": "sha512-DGnvf70iXnpzOorKUAvwXoBWR2DKpRyP3Xxff7fUb4z8QE8ok93itiERDEn9Pi+BF1nZxKzVTsRbKly+CyfPEw==",
       "path": "hangfire.sqlserver/1.8.9",
       "hashPath": "hangfire.sqlserver.1.8.9.nupkg.sha512"
+    },
+    "jQuery/1.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vb0p7+eRmc2evBCT9W7PCUupqWiDMi9/ofBHN99LraRzLY5jPKMeFzFYBoMgwA8TiwRoFDke5hiDDLsvae7qMg==",
+      "path": "jquery/1.6.3",
+      "hashPath": "jquery.1.6.3.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.Analyzers/3.3.4": {
       "type": "package",
@@ -738,6 +753,13 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "toastr/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h/688XvzYk1xVYn213ryU+HCElE4n/drYzAHJkAi9LsSUPS3EbI6wGlvCglBUt7i4h5iESgAVarYaigjQmVpqg==",
+      "path": "toastr/2.1.1",
+      "hashPath": "toastr.2.1.1.nupkg.sha512"
     },
     "RealEntity/1.0.0": {
       "type": "project",

@@ -217,6 +217,22 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\css\\toastr.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\toastr.css"
+    },
+    {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\css\\toastr.less",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\toastr.less"
+    },
+    {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\css\\toastr.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\toastr.min.css"
+    },
+    {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\css\\toastr.scss",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\toastr.scss"
+    },
+    {
       "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
@@ -263,6 +279,14 @@
     {
       "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\js\\toastr.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\toastr.js"
+    },
+    {
+      "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\bootstrap\\dist\\js\\toastr.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\toastr.min.js"
     },
     {
       "Id": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
