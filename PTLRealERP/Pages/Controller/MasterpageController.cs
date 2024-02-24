@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
 using RealEntity.Account;
 using RealEntity.Masterpage;
+using RealERPLIB.ControllersRepository.MasterpageControllerRepository;
 using RealERPLIB.DapperRepository;
 using System.Data;
 using static RealEntity.Masterpage.MasterClass;
@@ -17,22 +18,17 @@ namespace PTLRealERP.Pages.Controller
     [Authorize]
     public class MasterpageController : ControllerBase
     {
-        private readonly IDapperService _dapperService;
-        public MasterpageController(IDapperService dapperService)
+        private readonly IMasterpageRepository _masterpageRepository;
+        public MasterpageController(IMasterpageRepository masterpageRepository)
         {
-            _dapperService = dapperService;
+            _masterpageRepository = masterpageRepository;
         }
         [HttpGet("ModuleData")]
         public async Task<IActionResult> OnGetModule()
         {
             try
             {
-                string procedureName = "SP_UTILITY_LOGIN_MGT";
-                string Calltype = "GETCOMMODULE";
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Calltype", Calltype);
-                List<Modules> listOfModule =await _dapperService.GetListAsync<Modules>(procedureName, parameters);
-                
+                List<Modules> listOfModule = await _masterpageRepository.GetModule();
                 return Ok(new { data = listOfModule });
             }
             catch (Exception ex)
@@ -47,11 +43,7 @@ namespace PTLRealERP.Pages.Controller
         {
             try
             {
-                string procedureName = "SP_UTILITY_LOGIN_MGT";
-                string Calltype = "GETINTERFACE";
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Calltype", Calltype);
-                List<Interfaces> listOfInterface =await _dapperService.GetListAsync<Interfaces>(procedureName, parameters);
+                List<Interfaces> listOfInterface = await _masterpageRepository.GetInterface();
                 return Ok(new { data = listOfInterface });
             }
             catch (Exception ex)

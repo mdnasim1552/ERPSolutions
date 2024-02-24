@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RealERPLIB.DapperRepository;
+using System.Collections.Generic;
 using System.Data;
 
 namespace PTLRealERP.Pages

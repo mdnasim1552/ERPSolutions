@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealERPLIB.ControllersRepository.PrintControllerRepository
 {
-    public class PrintRepository
+    public class PrintRepository:IPrintRepository
     {
         public PrintRepository()
         {
