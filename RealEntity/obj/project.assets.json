@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
+      "projectUniqueName": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
       "projectName": "RealEntity",
-      "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
+      "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
       "packagesPath": "C:\\Users\\mdnas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\obj\\",
+      "outputPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

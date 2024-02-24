@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj": {}
+    "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj": {
+    "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj",
+        "projectUniqueName": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj",
         "projectName": "PTLRealERP",
-        "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj",
+        "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\PTLRealERP\\PTLRealERP.csproj",
         "packagesPath": "C:\\Users\\mdnas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\PTLRealERP\\obj\\",
+        "outputPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\PTLRealERP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,14 +33,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
-                "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
+              "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
+                "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
               },
-              "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj": {
-                "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj"
+              "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj": {
+                "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj"
               },
-              "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj": {
-                "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj"
+              "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj": {
+                "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj"
               }
             }
           }
@@ -99,14 +99,14 @@
         }
       }
     },
-    "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
+    "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
+        "projectUniqueName": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
         "projectName": "RealEntity",
-        "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
+        "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj",
         "packagesPath": "C:\\Users\\mdnas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\obj\\",
+        "outputPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -159,14 +159,14 @@
         }
       }
     },
-    "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj": {
+    "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj",
+        "projectUniqueName": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj",
         "projectName": "RealERPLIB",
-        "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj",
+        "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPLIB\\RealERPLIB.csproj",
         "packagesPath": "C:\\Users\\mdnas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPLIB\\obj\\",
+        "outputPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPLIB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -188,8 +188,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
-                "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
+              "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
+                "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
               }
             }
           }
@@ -241,14 +241,14 @@
         }
       }
     },
-    "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj": {
+    "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj",
+        "projectUniqueName": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj",
         "projectName": "RealERPRDLC",
-        "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj",
+        "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPRDLC\\RealERPRDLC.csproj",
         "packagesPath": "C:\\Users\\mdnas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealERPRDLC\\obj\\",
+        "outputPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealERPRDLC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -270,8 +270,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
-                "projectPath": "C:\\Users\\mdnas\\OneDrive\\Desktop\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
+              "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj": {
+                "projectPath": "F:\\Razor_25_Feb_2024\\Razor\\PTLRealERP\\RealEntity\\RealEntity.csproj"
               }
             }
           }

@@ -10,3 +10,15 @@ F:\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.dll
 F:\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\refint\RealEntity.dll
 F:\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.pdb
 F:\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\ref\RealEntity.dll
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\bin\Debug\net8.0\RealEntity.deps.json
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\bin\Debug\net8.0\RealEntity.dll
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\bin\Debug\net8.0\RealEntity.pdb
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.GeneratedMSBuildEditorConfig.editorconfig
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.AssemblyInfoInputs.cache
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.AssemblyInfo.cs
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.csproj.CoreCompileInputs.cache
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.sourcelink.json
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.dll
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\refint\RealEntity.dll
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\RealEntity.pdb
+F:\Razor_25_Feb_2024\Razor\PTLRealERP\RealEntity\obj\Debug\net8.0\ref\RealEntity.dll
