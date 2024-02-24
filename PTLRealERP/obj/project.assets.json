@@ -15,18 +15,18 @@
           }
         }
       },
-      "Hangfire/1.8.9": {
+      "Hangfire/1.8.11": {
         "type": "package",
         "dependencies": {
-          "Hangfire.AspNetCore": "[1.8.9]",
-          "Hangfire.Core": "[1.8.9]",
-          "Hangfire.SqlServer": "[1.8.9]"
+          "Hangfire.AspNetCore": "[1.8.11]",
+          "Hangfire.Core": "[1.8.11]",
+          "Hangfire.SqlServer": "[1.8.11]"
         }
       },
-      "Hangfire.AspNetCore/1.8.9": {
+      "Hangfire.AspNetCore/1.8.11": {
         "type": "package",
         "dependencies": {
-          "Hangfire.NetCore": "[1.8.9]"
+          "Hangfire.NetCore": "[1.8.11]"
         },
         "compile": {
           "lib/netcoreapp3.0/Hangfire.AspNetCore.dll": {
@@ -42,7 +42,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Hangfire.Core/1.8.9": {
+      "Hangfire.Core/1.8.11": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "11.0.1"
@@ -102,10 +102,10 @@
           }
         }
       },
-      "Hangfire.NetCore/1.8.9": {
+      "Hangfire.NetCore/1.8.11": {
         "type": "package",
         "dependencies": {
-          "Hangfire.Core": "[1.8.9]",
+          "Hangfire.Core": "[1.8.11]",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "3.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.0.0"
@@ -121,10 +121,10 @@
           }
         }
       },
-      "Hangfire.SqlServer/1.8.9": {
+      "Hangfire.SqlServer/1.8.11": {
         "type": "package",
         "dependencies": {
-          "Hangfire.Core": "[1.8.9]"
+          "Hangfire.Core": "[1.8.11]"
         },
         "compile": {
           "lib/netstandard2.0/Hangfire.SqlServer.dll": {
@@ -771,22 +771,10 @@
         "readme.md"
       ]
     },
-    "Hangfire/1.8.9": {
-      "sha512": "vBKaCu2AWaol8C5SanXZGZzkPTchlFyY8XdrccbAGj2uZpyTNMUslMReQaxEBVvmqsBkuguzubsywMVSHAkKsw==",
+    "Hangfire/1.8.11": {
+      "sha512": "k0uIgJYZsIyLROsIPBXhxL6BHG3Z6xX3UfiPjg+wFXBp+UZrvnZMQ7Di4Zm73/4Vqg7uf8TWpuaZowzK9QOX2A==",
       "type": "package",
-      "path": "hangfire/1.8.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "hangfire.1.8.9.nupkg.sha512",
-        "hangfire.nuspec",
-        "readme.txt"
-      ]
-    },
-    "Hangfire.AspNetCore/1.8.9": {
-      "sha512": "JL4bRGQDPr77boIbbVccWJxdvgRtCk9Dyv583QLNyJ7GkX+IuUQ2SuMCAwhpaASMUKfAvzpsfjsrK2tr7fqmeA==",
-      "type": "package",
-      "path": "hangfire.aspnetcore/1.8.9",
+      "path": "hangfire/1.8.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -796,8 +784,28 @@
         "LICENSE_ROYALTYFREE",
         "LICENSE_STANDARD",
         "NOTICES",
-        "hangfire.aspnetcore.1.8.9.nupkg.sha512",
+        "README.md",
+        "hangfire.1.8.11.nupkg.sha512",
+        "hangfire.nuspec",
+        "icon.png"
+      ]
+    },
+    "Hangfire.AspNetCore/1.8.11": {
+      "sha512": "iWEzTWm/3ZTqsF6U40ftKhoLaXP/uJK0V0L+Hh3LX4QRZn69oYBknqJCjC+BuMXg3Gv5FrmBk4z0vWVW3bJRlA==",
+      "type": "package",
+      "path": "hangfire.aspnetcore/1.8.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING",
+        "COPYING.LESSER",
+        "LICENSE.md",
+        "LICENSE_ROYALTYFREE",
+        "LICENSE_STANDARD",
+        "NOTICES",
+        "hangfire.aspnetcore.1.8.11.nupkg.sha512",
         "hangfire.aspnetcore.nuspec",
+        "icon.png",
         "lib/net451/Hangfire.AspNetCore.dll",
         "lib/net451/Hangfire.AspNetCore.xml",
         "lib/net461/Hangfire.AspNetCore.dll",
@@ -810,10 +818,10 @@
         "lib/netstandard2.0/Hangfire.AspNetCore.xml"
       ]
     },
-    "Hangfire.Core/1.8.9": {
-      "sha512": "BGVEyOfBgWR1WvpDGGh0nlRTIf5JMOHBmsYq70ektjQAlwa/hto2esVv5vCKWXOFE2x8GnuGoDksQVvAbnhRUA==",
+    "Hangfire.Core/1.8.11": {
+      "sha512": "5U+I3baRemjYYs6AwwyjgnLA/m3dOOUvSG4M+fSyyPT2snUgrTmv29fqUOZc4A61GV49xlz0MDbBBUnEdnE1sQ==",
       "type": "package",
-      "path": "hangfire.core/1.8.9",
+      "path": "hangfire.core/1.8.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -823,8 +831,10 @@
         "LICENSE_ROYALTYFREE",
         "LICENSE_STANDARD",
         "NOTICES",
-        "hangfire.core.1.8.9.nupkg.sha512",
+        "README.md",
+        "hangfire.core.1.8.11.nupkg.sha512",
         "hangfire.core.nuspec",
+        "icon.png",
         "lib/net451/Hangfire.Core.dll",
         "lib/net451/Hangfire.Core.xml",
         "lib/net451/ca/Hangfire.Core.resources.dll",
@@ -891,10 +901,10 @@
         "lib/netstandard2.0/zh/Hangfire.Core.resources.dll"
       ]
     },
-    "Hangfire.NetCore/1.8.9": {
-      "sha512": "i0plMCJU+4h2OUpQEfFOFDp2ViTB/2c/Ksc1f+4k+g49hCHscOSpaE3Kl/ChrHu3jjvlAM1ydT6lpnHWfK2rkQ==",
+    "Hangfire.NetCore/1.8.11": {
+      "sha512": "S2ORKqZ1Ll2Iql0VzXEwMnPTZDUJh41o5s7OidSNt8iOgIsPyN97CVwju84T/l0m9w8GEXsEX7pBjLDI8iay4g==",
       "type": "package",
-      "path": "hangfire.netcore/1.8.9",
+      "path": "hangfire.netcore/1.8.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -904,8 +914,9 @@
         "LICENSE_ROYALTYFREE",
         "LICENSE_STANDARD",
         "NOTICES",
-        "hangfire.netcore.1.8.9.nupkg.sha512",
+        "hangfire.netcore.1.8.11.nupkg.sha512",
         "hangfire.netcore.nuspec",
+        "icon.png",
         "lib/net451/Hangfire.NetCore.dll",
         "lib/net451/Hangfire.NetCore.xml",
         "lib/net461/Hangfire.NetCore.dll",
@@ -918,10 +929,10 @@
         "lib/netstandard2.1/Hangfire.NetCore.xml"
       ]
     },
-    "Hangfire.SqlServer/1.8.9": {
-      "sha512": "DGnvf70iXnpzOorKUAvwXoBWR2DKpRyP3Xxff7fUb4z8QE8ok93itiERDEn9Pi+BF1nZxKzVTsRbKly+CyfPEw==",
+    "Hangfire.SqlServer/1.8.11": {
+      "sha512": "sYID7GGKMrX6e9nYE1vBl+HyV3OUTZHinj3WMNxt+B2NGEourJsVqkTMiJOhUfhAKur+boxYfHxEaOTeYz1KlQ==",
       "type": "package",
-      "path": "hangfire.sqlserver/1.8.9",
+      "path": "hangfire.sqlserver/1.8.11",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -932,8 +943,9 @@
         "LICENSE_ROYALTYFREE",
         "LICENSE_STANDARD",
         "NOTICES",
-        "hangfire.sqlserver.1.8.9.nupkg.sha512",
+        "hangfire.sqlserver.1.8.11.nupkg.sha512",
         "hangfire.sqlserver.nuspec",
+        "icon.png",
         "lib/net451/Hangfire.SqlServer.dll",
         "lib/net451/Hangfire.SqlServer.xml",
         "lib/netstandard1.3/Hangfire.SqlServer.dll",
@@ -2453,7 +2465,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Dapper >= 2.1.28",
-      "Hangfire >= 1.8.9",
+      "Hangfire >= 1.8.11",
       "RealERPLIB >= 1.0.0",
       "RealERPRDLC >= 1.0.0",
       "RealEntity >= 1.0.0",
@@ -2523,7 +2535,7 @@
           },
           "Hangfire": {
             "target": "Package",
-            "version": "[1.8.9, )"
+            "version": "[1.8.11, )"
           },
           "ReportViewerCore.NETCore": {
             "target": "Package",

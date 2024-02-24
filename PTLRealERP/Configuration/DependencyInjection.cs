@@ -2,6 +2,8 @@
 using RealEntity.Account;
 using RealERPLIB.ConfigurationRepository;
 using RealERPLIB.ControllersRepository;
+using RealERPLIB.ControllersRepository.MasterpageControllerRepository;
+using RealERPLIB.ControllersRepository.PrintControllerRepository;
 using RealERPLIB.DapperRepository;
 using RealERPLIB.LoginRepository;
 
@@ -15,6 +17,8 @@ namespace PTLRealERP.Configuration
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IPrintRepository, PrintRepository>();
+            services.AddScoped< IMasterpageRepository,MasterpageRepository>();
             return services;
         }
         public static IServiceCollection AddAuthenticationAndAuthorization(this IServiceCollection services)

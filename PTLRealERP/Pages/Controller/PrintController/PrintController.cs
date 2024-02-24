@@ -12,7 +12,12 @@ using RealERPLIB.ControllersRepository;
 using RealERPLIB.Extensions;
 using RealERPLIB.LoginRepository;
 using RealERPRDLC;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PTLRealERP.Pages.Controller.PrintController
@@ -91,12 +96,6 @@ namespace PTLRealERP.Pages.Controller.PrintController
                 // Save the PDF file to the specified path
                 System.IO.File.WriteAllBytes(filePath, bytes);
 
-                //await System.Threading.Tasks.Task.Run(() =>
-                //{
-                //     Task.Delay(TimeSpan.FromSeconds(10));
-                //    //await System.Threading.Thread.Sleep(10000); // Delay for 10 seconds
-                //    System.IO.File.Delete(filePath);
-                //});
                 _backgroundJobClient.Schedule(() => DeleteFile(filePath), TimeSpan.FromMinutes(1)); // Adjust the duration as needed
                 return Ok(new { fileUrl = "/" + foldername + "/" + fileName });
                 //return File(bytes, "application/pdf", "Report.pdf");
